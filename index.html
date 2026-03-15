@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#C0392B">
 <title>Wellness · Granada CF</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --red:    #C0392B; --red-d:  #922B21; --red-l:  #F9EBEA; --red-m: #E74C3C;
@@ -19,7 +19,7 @@
   --radius: 14px; --shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text); min-height:100vh; padding-bottom:40px; }
+body { font-family:Arial,sans-serif; background:var(--off); color:var(--text); min-height:100vh; padding-bottom:40px; }
 
 /* ── PIN SCREEN ─────────────────────────────────────── */
 .pin-screen {
@@ -29,11 +29,11 @@ body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text)
 }
 .pin-logo { width:90px; height:90px; background:white; border-radius:50%; padding:8px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.2); }
 .pin-logo img { width:100%; height:100%; object-fit:contain; }
-.pin-club { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:4px; }
-.pin-title { font-family:'Barlow Condensed',sans-serif; font-size:32px; font-weight:800; color:white; margin-bottom:6px; letter-spacing:0.02em; }
+.pin-club { font-family:'Arial Narrow',Arial,sans-serif; font-size:13px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:4px; }
+.pin-title { font-family:'Arial Narrow',Arial,sans-serif; font-size:32px; font-weight:800; color:white; margin-bottom:6px; letter-spacing:0.02em; }
 .pin-subtitle { font-size:14px; color:rgba(255,255,255,0.75); margin-bottom:32px; text-align:center; line-height:1.5; }
 .pin-card { background:white; border-radius:20px; padding:28px 24px; width:100%; max-width:320px; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
-.pin-player-name { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:800; color:var(--text); text-align:center; margin-bottom:4px; min-height:28px; }
+.pin-player-name { font-family:'Arial Narrow',Arial,sans-serif; font-size:22px; font-weight:800; color:var(--text); text-align:center; margin-bottom:4px; min-height:28px; }
 .pin-player-pos  { font-size:13px; color:var(--text-s); text-align:center; margin-bottom:20px; min-height:18px; }
 .pin-dots { display:flex; justify-content:center; gap:12px; margin-bottom:24px; }
 .pin-dot { width:16px; height:16px; border-radius:50%; border:2px solid var(--border); transition:all 0.2s; }
@@ -44,7 +44,7 @@ body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text)
 .pin-pad { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .pin-key {
   aspect-ratio:1; border:1.5px solid var(--border); border-radius:12px;
-  background:var(--off); font-family:'Barlow Condensed',sans-serif;
+  background:var(--off); font-family:'Arial Narrow',Arial,sans-serif;
   font-size:24px; font-weight:700; color:var(--text); cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   transition:all 0.1s; user-select:none;
@@ -61,8 +61,8 @@ body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text)
 .logo-wrap { width:44px; height:44px; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; padding:3px; }
 .logo-wrap img { width:100%; height:100%; object-fit:contain; }
 .header-text { flex:1; }
-.header-club  { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.12em; text-transform:uppercase; }
-.header-title { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:800; color:white; letter-spacing:0.02em; line-height:1.1; }
+.header-club  { font-family:'Arial Narrow',Arial,sans-serif; font-size:11px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.12em; text-transform:uppercase; }
+.header-title { font-family:'Arial Narrow',Arial,sans-serif; font-size:20px; font-weight:800; color:white; letter-spacing:0.02em; line-height:1.1; }
 .header-player { display:flex; align-items:center; gap:8px; }
 .player-chip { background:rgba(255,255,255,0.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:600; color:white; }
 .progress-wrap { padding:0 20px 12px; }
@@ -83,7 +83,7 @@ body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text)
 .block-header { display:flex; align-items:center; gap:10px; padding:14px 16px 12px; border-bottom:1px solid var(--border); }
 .block-icon   { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
 .block-info   { flex:1; }
-.block-title  { font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; }
+.block-title  { font-family:'Arial Narrow',Arial,sans-serif; font-size:15px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; }
 .block-sub    { font-size:11px; color:var(--text-s); margin-top:1px; }
 .block-pts    { font-size:11px; font-weight:600; color:var(--gray); background:var(--gray-l); padding:3px 8px; border-radius:10px; }
 .block-body   { padding:14px 16px; display:flex; flex-direction:column; gap:18px; }
@@ -95,7 +95,7 @@ body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text)
 .scale-buttons { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
 .scale-btn {
   aspect-ratio:1; border:1.5px solid var(--border); border-radius:10px;
-  background:var(--off); font-family:'Barlow Condensed',sans-serif;
+  background:var(--off); font-family:'Arial Narrow',Arial,sans-serif;
   font-size:20px; font-weight:700; color:var(--gray); cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   transition:all 0.15s; -webkit-appearance:none;
@@ -129,7 +129,7 @@ body { font-family:'Barlow',sans-serif; background:var(--off); color:var(--text)
 .chip:active { transform:scale(0.95); }
 .chip.selected { background:var(--red-l); border-color:var(--red); color:var(--red-d); font-weight:600; }
 .chip.none-chip.selected { background:var(--green-l); border-color:var(--green); color:#085041; }
-.text-input { width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:10px; font-family:'Barlow',sans-serif; font-size:14px; color:var(--text); background:var(--off); transition:border-color 0.15s; -webkit-appearance:none; }
+.text-input { width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:10px; font-family:Arial,sans-serif; font-size:14px; color:var(--text); background:var(--off); transition:border-color 0.15s; -webkit-appearance:none; }
 .text-input:focus { outline:none; border-color:var(--red); background:white; }
 .text-input::placeholder { color:#AAAAAA; }
 textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
@@ -139,14 +139,14 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
 .submit-section { padding:8px 0 0; max-width:520px; margin:0 auto; }
 .score-preview  { background:white; border-radius:var(--radius); padding:14px 16px; margin-bottom:12px; box-shadow:var(--shadow); display:flex; align-items:center; gap:14px; }
 .score-circle   { width:56px; height:56px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; border:3px solid var(--border); transition:all 0.3s; }
-.score-circle .num { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:800; line-height:1; }
+.score-circle .num { font-family:'Arial Narrow',Arial,sans-serif; font-size:22px; font-weight:800; line-height:1; }
 .score-circle .max { font-size:10px; color:var(--gray); }
 .score-info   { flex:1; }
-.score-status { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:700; letter-spacing:0.03em; }
+.score-status { font-family:'Arial Narrow',Arial,sans-serif; font-size:16px; font-weight:700; letter-spacing:0.03em; }
 .score-tip    { font-size:12px; color:var(--text-s); margin-top:2px; }
 .score-bar-wrap { height:4px; background:var(--gray-l); border-radius:2px; margin-top:8px; overflow:hidden; }
 .score-bar-fill { height:100%; border-radius:2px; transition:width 0.4s,background 0.4s; }
-.submit-btn { width:100%; background:var(--red); color:white; border:none; border-radius:var(--radius); padding:16px; font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:all 0.15s; box-shadow:0 4px 14px rgba(192,57,43,0.4); }
+.submit-btn { width:100%; background:var(--red); color:white; border:none; border-radius:var(--radius); padding:16px; font-family:'Arial Narrow',Arial,sans-serif; font-size:18px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:all 0.15s; box-shadow:0 4px 14px rgba(192,57,43,0.4); }
 .submit-btn:active  { transform:scale(0.98); background:var(--red-d); }
 .submit-btn:disabled{ background:#ccc; box-shadow:none; cursor:not-allowed; }
 .privacy-note { text-align:center; font-size:11px; color:var(--gray); margin-top:10px; }
@@ -156,10 +156,10 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
 .confirm-screen.show { display:flex; }
 .confirm-logo   { width:80px; height:80px; border-radius:50%; background:white; padding:8px; box-shadow:var(--shadow); margin-bottom:20px; }
 .confirm-logo img { width:100%; height:100%; object-fit:contain; }
-.confirm-title  { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--text); margin-bottom:8px; }
+.confirm-title  { font-family:'Arial Narrow',Arial,sans-serif; font-size:28px; font-weight:800; color:var(--text); margin-bottom:8px; }
 .confirm-text   { font-size:15px; color:var(--text-s); line-height:1.6; margin-bottom:24px; }
 .confirm-score-card { background:white; border-radius:var(--radius); padding:20px 24px; width:100%; max-width:300px; box-shadow:var(--shadow); margin-bottom:16px; }
-.confirm-score-num   { font-family:'Barlow Condensed',sans-serif; font-size:52px; font-weight:800; line-height:1; }
+.confirm-score-num   { font-family:'Arial Narrow',Arial,sans-serif; font-size:52px; font-weight:800; line-height:1; }
 .confirm-score-label { font-size:13px; font-weight:600; margin-top:4px; }
 .confirm-score-sub   { font-size:12px; color:var(--text-s); margin-top:4px; }
 .confirm-footer { font-size:12px; color:var(--gray); margin-top:8px; }
@@ -202,12 +202,12 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
         oninput="pinInputChange(this)"
         onkeydown="if(event.key==='Enter') validatePin()"
         style="width:100%;padding:14px 16px;border:1.5px solid #E8E8E8;border-radius:12px;
-               font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;
+               font-family:'Arial Narrow',Arial,sans-serif;font-size:22px;font-weight:700;
                letter-spacing:0.18em;text-align:center;color:#1A1A1A;background:#F7F7F7;
                -webkit-appearance:none;outline:none;margin-bottom:12px;">
       <button onclick="validatePin()"
         style="width:100%;background:#C0392B;color:white;border:none;border-radius:12px;
-               padding:14px;font-family:'Barlow Condensed',sans-serif;font-size:17px;
+               padding:14px;font-family:'Arial Narrow',Arial,sans-serif;font-size:17px;
                font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">
         Acceder
       </button>
