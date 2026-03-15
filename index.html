@@ -539,16 +539,28 @@ function loadPlayers() {
   if (cached) {
     try { PLAYERS = JSON.parse(cached); } catch(e) {}
   }
-  // Also try to fetch fresh list from WebApp
-  fetch(WEBAPP_URL + '?action=getPlayers')
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      if (data && data.players) {
+  // Fetch player list via POST to bypass GET cache
+  fetch(WEBAPP_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'getPlayers' }),
+  })
+  .then(function(){ })
+  .catch(function(){ });
+  // Use XMLHttpRequest as fallback (bypasses some cache issues)
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', WEBAPP_URL + '?action=getPlayers&v=' + Date.now(), true);
+  xhr.onload = function() {
+    try {
+      var data = JSON.parse(xhr.responseText);
+      if (data && data.players && Object.keys(data.players).length > 0) {
         PLAYERS = data.players;
         localStorage.setItem('gcf_players', JSON.stringify(PLAYERS));
       }
-    })
-    .catch(function(){});
+    } catch(e) {}
+  };
+  xhr.send();
 }
 
 // Check if player already logged in this session
