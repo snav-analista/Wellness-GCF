@@ -151,6 +151,20 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
 .submit-btn:disabled{ background:#ccc; box-shadow:none; cursor:not-allowed; }
 .privacy-note { text-align:center; font-size:11px; color:var(--gray); margin-top:10px; }
 
+/* ── MODE SWITCHER ──────────────────────────────────── */
+.mode-switcher { display:flex; gap:0; margin:0 0 14px; background:white; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.mode-btn { flex:1; padding:12px 8px; border:none; background:transparent; font-family:Arial,sans-serif; font-size:13px; font-weight:600; color:var(--gray); cursor:pointer; transition:all 0.2s; border-bottom:3px solid transparent; }
+.mode-btn.mode-active { color:var(--red); border-bottom-color:var(--red); background:var(--red-l); }
+
+/* ── sRPE SCREEN ────────────────────────────────────── */
+.srpe-scale { display:flex; flex-direction:column; gap:6px; }
+.srpe-row { display:flex; align-items:center; gap:10px; padding:10px 14px; border:1.5px solid var(--border); border-radius:10px; cursor:pointer; transition:all 0.15s; background:var(--off); }
+.srpe-row:active { transform:scale(0.98); }
+.srpe-row.selected { border-color:var(--red); background:var(--red-l); }
+.srpe-num { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:Arial,sans-serif; font-size:13px; font-weight:700; color:#fff; flex-shrink:0; }
+.srpe-btn { display:none; }
+.mol-btn  { display:flex; }
+
 /* ── CONFIRMATION ───────────────────────────────────── */
 .confirm-screen { display:none; min-height:100vh; flex-direction:column; align-items:center; justify-content:center; padding:40px 24px; text-align:center; background:var(--off); }
 .confirm-screen.show { display:flex; }
@@ -247,6 +261,12 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
   </div>
 
   <div class="main">
+    <!-- Switcher manual -->
+    <div class="mode-switcher">
+      <button class="mode-btn mode-active" id="btn-wellness" onclick="switchMode('wellness')">🛌 Wellness pre-entreno</button>
+      <button class="mode-btn" id="btn-srpe" onclick="switchMode('srpe')">💪 Valorar entrenamiento</button>
+    </div>
+
     <div class="limit-notice">
       ⏰ Completa este formulario <strong>antes del entrenamiento de hoy</strong>. El staff lo recibe al instante.
     </div>
@@ -508,6 +528,100 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
 </div>
 
 <!-- ══════════════════════════════════════════════════════
+     sRPE SCREEN
+════════════════════════════════════════════════════════ -->
+<div id="srpe-screen" style="display:none;">
+
+  <div class="app-header">
+    <div class="header-top">
+      <div class="logo-wrap"><img src="logo.png" alt="Granada CF"></div>
+      <div class="header-text">
+        <div class="header-club">Granada CF</div>
+        <div class="header-title">Wellness</div>
+      </div>
+      <div class="header-player">
+        <div class="player-chip" id="srpe-player-name">Jugadora</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main" style="padding-top:14px;">
+
+    <!-- Switcher manual -->
+    <div class="mode-switcher">
+      <button class="mode-btn" id="btn-wellness" onclick="switchMode('wellness')">🛌 Wellness pre-entreno</button>
+      <button class="mode-btn mode-active" id="btn-srpe" onclick="switchMode('srpe')">💪 Valorar entrenamiento</button>
+    </div>
+
+    <!-- Bloque sRPE -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-icon" style="background:#E8F4FD;">💪</div>
+        <div class="block-info">
+          <div class="block-title" style="color:#1A5276;">Esfuerzo percibido — Borg CR-10</div>
+          <div class="block-sub">¿Cómo fue el esfuerzo total de la sesión?</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="question">
+          <div class="q-hint">Piensa en el esfuerzo TOTAL de todo el entrenamiento, no en momentos puntuales.</div>
+          <div class="srpe-scale">
+            <div class="srpe-row" onclick="selectSRPE(this,1)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#1D9E75;">1</div><div><div style="font-size:13px;font-weight:600;">Muy, muy fácil</div><div style="font-size:11px;color:var(--gray);">Paseo sin esfuerzo</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,2)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#27AE60;">2</div><div><div style="font-size:13px;font-weight:600;">Fácil</div><div style="font-size:11px;color:var(--gray);">Calentamiento suave</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,3)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#97C459;">3</div><div><div style="font-size:13px;font-weight:600;">Moderado</div><div style="font-size:11px;color:var(--gray);">Charla técnica, rondos lentos</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,4)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#EF9F27;">4</div><div><div style="font-size:13px;font-weight:600;">Algo duro</div><div style="font-size:11px;color:var(--gray);">Trabajo técnico-táctico normal</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,5)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#E67E22;">5</div><div><div style="font-size:13px;font-weight:600;">Duro</div><div style="font-size:11px;color:var(--gray);">Partido de entrenamiento normal</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,6)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#E67E22;">6</div><div><div style="font-size:13px;font-weight:600;">Duro+</div><div style="font-size:11px;color:var(--gray);">Trabajo físico con balón, pressing</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,7)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#E74C3C;">7</div><div><div style="font-size:13px;font-weight:600;">Muy duro</div><div style="font-size:11px;color:var(--gray);">Series de sprint, alta intensidad</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,8)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#C0392B;">8</div><div><div style="font-size:13px;font-weight:600;">Muy muy duro</div><div style="font-size:11px;color:var(--gray);">Intervalos máximos o partido competitivo</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,9)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#922B21;">9</div><div><div style="font-size:13px;font-weight:600;">Casi máximo</div><div style="font-size:11px;color:var(--gray);">Test físico o doble sesión</div></div></div>
+            <div class="srpe-row" onclick="selectSRPE(this,10)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#7B241C;">10</div><div><div style="font-size:13px;font-weight:600;">Máximo esfuerzo</div><div style="font-size:11px;color:var(--gray);">Nunca has entrenado tan duro</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque molestias -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-icon" style="background:#F4ECF7;">🩹</div>
+        <div class="block-info">
+          <div class="block-title" style="color:#6C3483;">Molestias durante el entreno</div>
+          <div class="block-sub">Si hay dolor, el staff recibe alerta automática</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="question">
+          <div class="q-label">Nivel de molestia durante la sesión</div>
+          <div class="scale-buttons" style="margin-top:8px;">
+            <button class="scale-btn s1 mol-btn" onclick="selectMolestia(this,1)" data-val="1">1</button>
+            <button class="scale-btn s2 mol-btn" onclick="selectMolestia(this,2)" data-val="2">2</button>
+            <button class="scale-btn s3 mol-btn" onclick="selectMolestia(this,3)" data-val="3">3</button>
+            <button class="scale-btn s4 mol-btn" onclick="selectMolestia(this,4)" data-val="4">4</button>
+            <button class="scale-btn s5 mol-btn" onclick="selectMolestia(this,5)" data-val="5">5</button>
+          </div>
+          <div class="scale-ends"><span>Dolor intenso</span><span>Sin molestias</span></div>
+        </div>
+        <div id="zona-srpe-wrap" style="display:none;" class="question">
+          <div class="q-label">Zona afectada</div>
+          <input type="text" class="text-input" id="zona-srpe" placeholder="Ej: Gemelo izquierdo — pinchazo al sprint">
+        </div>
+        <div class="question">
+          <div class="q-label">Comentario <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
+          <textarea class="text-input" id="srpe-comentario" rows="3" placeholder="Cómo te has sentido, algo que notaste, una duda para el staff..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:0 0 8px;">
+      <button class="submit-btn" id="srpe-submit-btn" onclick="submitSRPE()">Enviar valoración</button>
+      <div class="privacy-note">🔒 Datos confidenciales · Solo los ve el staff de Granada CF</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
      CONFIRMATION SCREEN
 ════════════════════════════════════════════════════════ -->
 <div class="confirm-screen" id="confirm-screen">
@@ -637,10 +751,11 @@ function validatePin() {
 
 function showForm() {
   document.getElementById('pin-screen').style.display = 'none';
-  document.getElementById('form-screen').style.display = 'block';
   if (currentPlayer) {
     document.getElementById('header-player-name').textContent = currentPlayer.name;
+    document.getElementById('srpe-player-name').textContent   = currentPlayer.name;
   }
+  detectMode();
 }
 
 // ── Form logic ────────────────────────────────────────
@@ -766,6 +881,110 @@ function showToast(msg) {
   t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:white;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;max-width:280px;text-align:center;';
   document.body.appendChild(t);
   setTimeout(function(){ t.remove(); }, 3000);
+}
+
+// ── Mode detection ───────────────────────────────────
+var APP_MODE = 'wellness'; // 'wellness' or 'srpe'
+
+function detectMode() {
+  var hour = new Date().getHours();
+  // Default: before 15h = wellness, after 15h = srpe
+  // Will be overridden by calendar data if available
+  APP_MODE = hour < 15 ? 'wellness' : 'srpe';
+  // Try to get session time from WebApp
+  fetch(WEBAPP_URL + '?action=getSesionHoy&v=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data && data.horaEntreno) {
+        var parts = data.horaEntreno.split(':');
+        var entrenoHour = parseInt(parts[0]);
+        APP_MODE = hour < (entrenoHour - 1) ? 'wellness' : 'srpe';
+      }
+      applyMode();
+    })
+    .catch(function(){ applyMode(); });
+}
+
+function applyMode() {
+  if (APP_MODE === 'srpe') {
+    document.getElementById('form-screen').style.display = 'none';
+    document.getElementById('srpe-screen').style.display = 'block';
+  } else {
+    document.getElementById('form-screen').style.display = 'block';
+    document.getElementById('srpe-screen').style.display = 'none';
+  }
+  // Update switcher buttons
+  document.getElementById('btn-wellness').classList.toggle('mode-active', APP_MODE === 'wellness');
+  document.getElementById('btn-srpe').classList.toggle('mode-active', APP_MODE === 'srpe');
+}
+
+function switchMode(mode) {
+  APP_MODE = mode;
+  applyMode();
+  window.scrollTo(0,0);
+}
+
+// ── sRPE submit ───────────────────────────────────────
+var srpeAnswers = { srpe: 0, molestia: 5 };
+var isSubmittingSRPE = false;
+
+function selectSRPE(btn, val) {
+  document.querySelectorAll('.srpe-btn').forEach(function(b){ b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  srpeAnswers.srpe = val;
+}
+
+function selectMolestia(btn, val) {
+  document.querySelectorAll('.mol-btn').forEach(function(b){ b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  srpeAnswers.molestia = val;
+  document.getElementById('zona-srpe-wrap').style.display = val <= 3 ? 'block' : 'none';
+}
+
+function submitSRPE() {
+  if (isSubmittingSRPE) return;
+  if (!srpeAnswers.srpe) { showToast('Selecciona el nivel de esfuerzo'); return; }
+  if (!srpeAnswers.molestia) { showToast('Indica si tuviste molestias'); return; }
+
+  isSubmittingSRPE = true;
+  var btn = document.getElementById('srpe-submit-btn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  var payload = {
+    action:      'submitSRPE',
+    name:        currentPlayer ? currentPlayer.name  : '',
+    email:       currentPlayer ? currentPlayer.email : '',
+    srpe:        String(srpeAnswers.srpe),
+    molestia:    srpeAnswers.molestia,
+    zona:        document.getElementById('zona-srpe').value || '',
+    comentario:  document.getElementById('srpe-comentario').value || '',
+    timestamp:   new Date().toISOString(),
+  };
+
+  fetch(WEBAPP_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  .then(function(){ showSRPEConfirmation(); })
+  .catch(function(){ showSRPEConfirmation(); });
+}
+
+function showSRPEConfirmation() {
+  document.getElementById('srpe-screen').style.display = 'none';
+  document.getElementById('confirm-screen').classList.add('show');
+  var ua = srpeAnswers.srpe * 90;
+  document.getElementById('confirm-num').textContent    = srpeAnswers.srpe + '/10';
+  document.getElementById('confirm-num').style.color    = srpeAnswers.srpe <= 4 ? '#1D9E75' : (srpeAnswers.srpe <= 7 ? '#E67E22' : '#C0392B');
+  document.getElementById('confirm-status').textContent = 'sRPE registrado';
+  document.getElementById('confirm-status').style.color = '#1D9E75';
+  document.getElementById('confirm-sub').textContent    = 'Carga estimada: ' + srpeAnswers.srpe + ' x 90 min = ' + ua + ' UA';
+  if (currentPlayer) {
+    document.getElementById('confirm-player-text').innerHTML =
+      'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Valoracion registrada.';
+  }
+  window.scrollTo(0,0);
 }
 
 // ── Init ──────────────────────────────────────────────
