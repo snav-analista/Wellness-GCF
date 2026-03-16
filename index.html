@@ -517,8 +517,9 @@ function enterApp() {
   document.getElementById('w-player-chip').textContent = name;
   document.getElementById('s-player-chip').textContent = name;
 
-  // Check if wellness already done today
-  var donePRE = localStorage.getItem('gcf_w_done_' + today);
+  // Check if wellness already done today BY THIS PLAYER
+  var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
+  var donePRE = localStorage.getItem('gcf_w_done_' + today + '_' + playerKey);
   if (donePRE) {
     showDone();
   } else {
@@ -535,8 +536,9 @@ function goMode(mode) {
   document.getElementById('done-screen').classList.remove('show');
   document.getElementById('confirm-screen').classList.remove('show');
   if (mode === 'wellness') {
-    // If already done, redirect to done screen
-    if (localStorage.getItem('gcf_w_done_' + today)) { showDone(); return; }
+    // If already done by this player today, redirect to done screen
+    var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
+    if (localStorage.getItem('gcf_w_done_' + today + '_' + playerKey)) { showDone(); return; }
     document.getElementById('wellness-screen').style.display = 'block';
   } else {
     document.getElementById('srpe-screen').style.display = 'block';
@@ -622,7 +624,8 @@ function submitWellness() {
 }
 
 function doneWellness() {
-  localStorage.setItem('gcf_w_done_'+today,'1');
+  var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
+  localStorage.setItem('gcf_w_done_'+today+'_'+playerKey,'1');
   document.getElementById('wellness-screen').style.display='none';
   document.getElementById('confirm-screen').classList.add('show');
   document.getElementById('c-icon').textContent='✅';
@@ -659,7 +662,8 @@ function submitSRPE() {
 }
 
 function doneSRPE() {
-  localStorage.setItem('gcf_s_done_'+today,'1');
+  var playerKeyS = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
+  localStorage.setItem('gcf_s_done_'+today+'_'+playerKeyS,'1');
   document.getElementById('srpe-screen').style.display='none';
   document.getElementById('confirm-screen').classList.add('show');
   var ua = srpeVal * 90;
