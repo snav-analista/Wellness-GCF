@@ -5,335 +5,228 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#C0392B">
 <title>Wellness · Granada CF</title>
-
 <style>
 :root {
-  --red:    #C0392B; --red-d:  #922B21; --red-l:  #F9EBEA; --red-m: #E74C3C;
-  --white:  #FFFFFF; --off:    #F7F7F7; --gray:   #888;
-  --gray-l: #F2F2F2; --text:   #1A1A1A; --text-s: #555;
-  --border: #E8E8E8; --green:  #1D9E75; --green-l:#E8F8F3;
-  --amber:  #E67E22; --amber-l:#FEF5EC;
-  --radius: 14px; --shadow: 0 2px 16px rgba(0,0,0,0.08);
+  --red:#C0392B; --red-d:#922B21; --red-l:#F9EBEA;
+  --white:#FFFFFF; --off:#F7F7F7; --gray:#888; --gray-l:#F2F2F2;
+  --text:#1A1A1A; --text-s:#555; --border:#E8E8E8;
+  --green:#1D9E75; --green-l:#E8F8F3;
+  --amber:#E67E22; --amber-l:#FEF5EC;
+  --radius:14px; --shadow:0 2px 16px rgba(0,0,0,0.08);
 }
-* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-body { font-family:Arial,sans-serif; background:var(--off); color:var(--text); min-height:100vh; padding-bottom:40px; }
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-height:100vh;padding-bottom:40px;}
 
-/* ── PIN SCREEN ─────────────────────────────────────── */
-.pin-screen {
-  min-height:100vh; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; padding:32px 24px;
-  background:var(--red);
-}
-.pin-logo { width:90px; height:90px; background:white; border-radius:50%; padding:8px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.2); }
-.pin-logo img { width:100%; height:100%; object-fit:contain; }
-.pin-club { font-family:'Arial Narrow',Arial,sans-serif; font-size:13px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:4px; }
-.pin-title { font-family:'Arial Narrow',Arial,sans-serif; font-size:32px; font-weight:800; color:white; margin-bottom:6px; letter-spacing:0.02em; }
-.pin-subtitle { font-size:14px; color:rgba(255,255,255,0.75); margin-bottom:32px; text-align:center; line-height:1.5; }
-.pin-card { background:white; border-radius:20px; padding:28px 24px; width:100%; max-width:320px; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
-.pin-player-name { font-family:'Arial Narrow',Arial,sans-serif; font-size:22px; font-weight:800; color:var(--text); text-align:center; margin-bottom:4px; min-height:28px; }
-.pin-player-pos  { font-size:13px; color:var(--text-s); text-align:center; margin-bottom:20px; min-height:18px; }
-.pin-dots { display:flex; justify-content:center; gap:12px; margin-bottom:24px; }
-.pin-dot { width:16px; height:16px; border-radius:50%; border:2px solid var(--border); transition:all 0.2s; }
-.pin-dot.filled { background:var(--red); border-color:var(--red); transform:scale(1.1); }
-.pin-dot.error  { background:#E74C3C; border-color:#E74C3C; animation:shake 0.4s ease; }
-.pin-dot.success{ background:var(--green); border-color:var(--green); }
-@keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-4px)} 40%,80%{transform:translateX(4px)} }
-.pin-pad { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-.pin-key {
-  aspect-ratio:1; border:1.5px solid var(--border); border-radius:12px;
-  background:var(--off); font-family:'Arial Narrow',Arial,sans-serif;
-  font-size:24px; font-weight:700; color:var(--text); cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  transition:all 0.1s; user-select:none;
-}
-.pin-key:active { transform:scale(0.93); background:var(--red-l); border-color:var(--red); color:var(--red-d); }
-.pin-key.del { font-size:18px; color:var(--gray); }
-.pin-key.empty { border:none; background:transparent; pointer-events:none; }
-.pin-error-msg { font-size:12px; color:var(--red-d); text-align:center; margin-top:14px; min-height:16px; font-weight:600; }
-.pin-hint { font-size:11px; color:var(--gray); text-align:center; margin-top:10px; }
+/* PIN */
+.pin-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background:var(--red);}
+.pin-logo{width:90px;height:90px;background:white;border-radius:50%;padding:8px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
+.pin-logo img{width:100%;height:100%;object-fit:contain;}
+.pin-club{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px;}
+.pin-title{font-size:32px;font-weight:800;color:white;margin-bottom:6px;}
+.pin-sub{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:32px;text-align:center;line-height:1.5;}
+.pin-card{background:white;border-radius:20px;padding:28px 24px;width:100%;max-width:320px;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+.pin-player-name{font-size:20px;font-weight:800;color:var(--text);text-align:center;margin-bottom:4px;min-height:26px;}
+.pin-dots{display:flex;justify-content:center;gap:10px;margin-bottom:20px;}
+.pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--border);transition:all 0.2s;}
+.pin-dot.filled{background:var(--red);border-color:var(--red);transform:scale(1.1);}
+.pin-dot.error{background:#E74C3C;border-color:#E74C3C;animation:shake 0.4s ease;}
+.pin-dot.success{background:var(--green);border-color:var(--green);}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}
+.pin-input{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:12px;font-size:22px;font-weight:700;letter-spacing:0.18em;text-align:center;color:var(--text);background:var(--off);-webkit-appearance:none;outline:none;margin-bottom:12px;}
+.pin-btn{width:100%;background:var(--red);color:white;border:none;border-radius:12px;padding:14px;font-size:17px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;}
+.pin-error{font-size:12px;color:var(--red-d);text-align:center;margin-top:10px;min-height:16px;font-weight:600;}
+.pin-hint{font-size:11px;color:var(--gray);text-align:center;margin-top:8px;}
 
-/* ── APP HEADER ─────────────────────────────────────── */
-.app-header { background:var(--red); position:sticky; top:0; z-index:100; }
-.header-top { display:flex; align-items:center; gap:12px; padding:14px 20px 10px; }
-.logo-wrap { width:44px; height:44px; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; padding:3px; }
-.logo-wrap img { width:100%; height:100%; object-fit:contain; }
-.header-text { flex:1; }
-.header-club  { font-family:'Arial Narrow',Arial,sans-serif; font-size:11px; font-weight:600; color:rgba(255,255,255,0.7); letter-spacing:0.12em; text-transform:uppercase; }
-.header-title { font-family:'Arial Narrow',Arial,sans-serif; font-size:20px; font-weight:800; color:white; letter-spacing:0.02em; line-height:1.1; }
-.header-player { display:flex; align-items:center; gap:8px; }
-.player-chip { background:rgba(255,255,255,0.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:600; color:white; }
-.progress-wrap { padding:0 20px 12px; }
-.progress-meta { display:flex; justify-content:space-between; font-size:11px; color:rgba(255,255,255,0.75); margin-bottom:6px; font-weight:500; }
-.progress-track { height:4px; background:rgba(255,255,255,0.25); border-radius:2px; overflow:hidden; }
-.progress-fill  { height:100%; background:white; border-radius:2px; transition:width 0.4s ease; }
+/* HEADER */
+.app-header{background:var(--red);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;gap:12px;padding:14px 20px 10px;}
+.logo-wrap{width:44px;height:44px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;padding:3px;}
+.logo-wrap img{width:100%;height:100%;object-fit:contain;}
+.header-club{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.12em;text-transform:uppercase;}
+.header-title{font-size:20px;font-weight:800;color:white;letter-spacing:0.02em;line-height:1.1;}
+.player-chip{background:rgba(255,255,255,0.2);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;color:white;}
+.progress-wrap{padding:0 20px 12px;}
+.progress-meta{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.75);margin-bottom:6px;font-weight:500;}
+.progress-track{height:4px;background:rgba(255,255,255,0.25);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:white;border-radius:2px;transition:width 0.4s;}
 
-/* ── MAIN ───────────────────────────────────────────── */
-.main { padding:16px 16px 0; max-width:520px; margin:0 auto; }
-.limit-notice { background:var(--amber-l); border-left:3px solid var(--amber); border-radius:0 10px 10px 0; padding:10px 14px; margin-bottom:16px; font-size:13px; color:#7E5109; font-weight:500; }
+/* MODE SWITCHER */
+.mode-switcher{display:flex;background:white;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px;}
+.mode-btn{flex:1;padding:13px 8px;border:none;background:transparent;font-size:13px;font-weight:700;color:var(--gray);cursor:pointer;transition:all 0.2s;border-bottom:3px solid transparent;}
+.mode-btn.active{color:var(--red);border-bottom-color:var(--red);background:var(--red-l);}
 
-/* ── BLOCKS ─────────────────────────────────────────── */
-.block { background:white; border-radius:var(--radius); margin-bottom:12px; overflow:hidden; box-shadow:var(--shadow); animation:fadeSlideIn 0.35s ease both; }
-.block:nth-child(2){animation-delay:.05s} .block:nth-child(3){animation-delay:.10s}
-.block:nth-child(4){animation-delay:.15s} .block:nth-child(5){animation-delay:.20s}
-.block:nth-child(6){animation-delay:.25s}
-@keyframes fadeSlideIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-.block-header { display:flex; align-items:center; gap:10px; padding:14px 16px 12px; border-bottom:1px solid var(--border); }
-.block-icon   { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
-.block-info   { flex:1; }
-.block-title  { font-family:'Arial Narrow',Arial,sans-serif; font-size:15px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; }
-.block-sub    { font-size:11px; color:var(--text-s); margin-top:1px; }
-.block-pts    { font-size:11px; font-weight:600; color:var(--gray); background:var(--gray-l); padding:3px 8px; border-radius:10px; }
-.block-body   { padding:14px 16px; display:flex; flex-direction:column; gap:18px; }
+/* MAIN */
+.main{padding:14px 16px 0;max-width:520px;margin:0 auto;}
+.limit-notice{background:var(--amber-l);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#7E5109;font-weight:500;}
 
-/* ── QUESTIONS ──────────────────────────────────────── */
-.question {}
-.q-label { font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; line-height:1.3; }
-.q-hint  { font-size:12px; color:var(--text-s); margin-bottom:10px; line-height:1.4; }
-.scale-buttons { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
-.scale-btn {
-  aspect-ratio:1; border:1.5px solid var(--border); border-radius:10px;
-  background:var(--off); font-family:'Arial Narrow',Arial,sans-serif;
-  font-size:20px; font-weight:700; color:var(--gray); cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  transition:all 0.15s; -webkit-appearance:none;
-}
-.scale-btn:active { transform:scale(0.94); }
-.scale-btn.selected { border-color:transparent; color:white; transform:scale(1.06); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
-@keyframes popIn { 0%{transform:scale(0.85);opacity:0} 60%{transform:scale(1.08)} 100%{transform:scale(1);opacity:1} }
-.scale-btn.selected { animation:popIn 0.2s ease; }
-.scale-btn.s1.selected{background:#C0392B} .scale-btn.s2.selected{background:#E74C3C}
-.scale-btn.s3.selected{background:#E67E22} .scale-btn.s4.selected{background:#27AE60}
-.scale-btn.s5.selected{background:#1D9E75}
-.scale-ends { display:flex; justify-content:space-between; margin-top:5px; font-size:11px; color:var(--gray); }
-.radio-list { display:flex; flex-direction:column; gap:6px; }
-.radio-item { display:flex; align-items:center; gap:12px; padding:10px 14px; border:1.5px solid var(--border); border-radius:10px; cursor:pointer; transition:all 0.15s; background:var(--off); }
-.radio-item:active { transform:scale(0.98); }
-.radio-item.selected { border-color:var(--red); background:var(--red-l); }
-.radio-dot { width:18px; height:18px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; }
-.radio-item.selected .radio-dot { border-color:var(--red); background:var(--red); }
-.radio-item.selected .radio-dot::after { content:''; width:6px; height:6px; border-radius:50%; background:white; }
-.radio-text { font-size:13px; font-weight:500; color:var(--text); }
-.radio-item.selected .radio-text { color:var(--red-d); font-weight:600; }
-.phase-list { display:flex; flex-direction:column; gap:6px; }
-.phase-item { display:flex; align-items:center; gap:10px; padding:10px 14px; border:1.5px solid var(--border); border-radius:10px; cursor:pointer; transition:all 0.15s; background:var(--off); }
-.phase-item:active { transform:scale(0.98); }
-.phase-item.selected { border-color:var(--red); background:var(--red-l); }
-.phase-dot  { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
-.phase-name { font-size:13px; font-weight:600; color:var(--text); }
-.phase-days { font-size:11px; color:var(--text-s); }
-.chip-grid  { display:flex; flex-wrap:wrap; gap:7px; }
-.chip { padding:7px 13px; border:1.5px solid var(--border); border-radius:20px; font-size:12px; font-weight:500; color:var(--text-s); background:var(--off); cursor:pointer; transition:all 0.15s; user-select:none; }
-.chip:active { transform:scale(0.95); }
-.chip.selected { background:var(--red-l); border-color:var(--red); color:var(--red-d); font-weight:600; }
-.chip.none-chip.selected { background:var(--green-l); border-color:var(--green); color:#085041; }
-.text-input { width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:10px; font-family:Arial,sans-serif; font-size:14px; color:var(--text); background:var(--off); transition:border-color 0.15s; -webkit-appearance:none; }
-.text-input:focus { outline:none; border-color:var(--red); background:white; }
-.text-input::placeholder { color:#AAAAAA; }
-textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
-.cycle-note { background:#FEF9F9; border:1px solid #F5C6C6; border-radius:8px; padding:8px 12px; font-size:11px; color:#922B21; margin-bottom:12px; line-height:1.5; }
+/* BLOCKS */
+.block{background:white;border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow);animation:fadeIn 0.3s ease both;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.block:nth-child(2){animation-delay:.05s}.block:nth-child(3){animation-delay:.10s}
+.block:nth-child(4){animation-delay:.15s}.block:nth-child(5){animation-delay:.20s}
+.block-header{display:flex;align-items:center;gap:10px;padding:14px 16px 12px;border-bottom:1px solid var(--border);}
+.block-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.block-title{font-size:15px;font-weight:800;letter-spacing:0.03em;text-transform:uppercase;}
+.block-sub{font-size:11px;color:var(--text-s);margin-top:1px;}
+.block-pts{font-size:11px;font-weight:600;color:var(--gray);background:var(--gray-l);padding:3px 8px;border-radius:10px;}
+.block-body{padding:14px 16px;display:flex;flex-direction:column;gap:18px;}
+.q-label{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.3;}
+.q-hint{font-size:12px;color:var(--text-s);margin-bottom:10px;line-height:1.4;}
 
-/* ── SUBMIT ─────────────────────────────────────────── */
-.submit-section { padding:8px 0 0; max-width:520px; margin:0 auto; }
-.score-preview  { background:white; border-radius:var(--radius); padding:14px 16px; margin-bottom:12px; box-shadow:var(--shadow); display:flex; align-items:center; gap:14px; }
-.score-circle   { width:56px; height:56px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; border:3px solid var(--border); transition:all 0.3s; }
-.score-circle .num { font-family:'Arial Narrow',Arial,sans-serif; font-size:22px; font-weight:800; line-height:1; }
-.score-circle .max { font-size:10px; color:var(--gray); }
-.score-info   { flex:1; }
-.score-status { font-family:'Arial Narrow',Arial,sans-serif; font-size:16px; font-weight:700; letter-spacing:0.03em; }
-.score-tip    { font-size:12px; color:var(--text-s); margin-top:2px; }
-.score-bar-wrap { height:4px; background:var(--gray-l); border-radius:2px; margin-top:8px; overflow:hidden; }
-.score-bar-fill { height:100%; border-radius:2px; transition:width 0.4s,background 0.4s; }
-.submit-btn { width:100%; background:var(--red); color:white; border:none; border-radius:var(--radius); padding:16px; font-family:'Arial Narrow',Arial,sans-serif; font-size:18px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:all 0.15s; box-shadow:0 4px 14px rgba(192,57,43,0.4); }
-.submit-btn:active  { transform:scale(0.98); background:var(--red-d); }
-.submit-btn:disabled{ background:#ccc; box-shadow:none; cursor:not-allowed; }
-.privacy-note { text-align:center; font-size:11px; color:var(--gray); margin-top:10px; }
+/* SCALE */
+.scale-buttons{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+.scale-btn{aspect-ratio:1;border:1.5px solid var(--border);border-radius:10px;background:var(--off);font-size:20px;font-weight:700;color:var(--gray);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;-webkit-appearance:none;}
+.scale-btn:active{transform:scale(0.94);}
+.scale-btn.sel{border-color:transparent;color:white;transform:scale(1.06);box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+.scale-btn.s1.sel{background:#C0392B;}.scale-btn.s2.sel{background:#E74C3C;}
+.scale-btn.s3.sel{background:#E67E22;}.scale-btn.s4.sel{background:#27AE60;}
+.scale-btn.s5.sel{background:#1D9E75;}
+.scale-ends{display:flex;justify-content:space-between;margin-top:5px;font-size:11px;color:var(--gray);}
 
-/* ── MODE SWITCHER ──────────────────────────────────── */
-.mode-switcher { display:flex; gap:0; margin:0 0 14px; background:white; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
-.mode-btn { flex:1; padding:12px 8px; border:none; background:transparent; font-family:Arial,sans-serif; font-size:13px; font-weight:600; color:var(--gray); cursor:pointer; transition:all 0.2s; border-bottom:3px solid transparent; }
-.mode-btn.mode-active { color:var(--red); border-bottom-color:var(--red); background:var(--red-l); }
+/* RADIO */
+.radio-list{display:flex;flex-direction:column;gap:6px;}
+.radio-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--off);}
+.radio-item.sel{border-color:var(--red);background:var(--red-l);}
+.radio-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.radio-item.sel .radio-dot{border-color:var(--red);background:var(--red);}
+.radio-item.sel .radio-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:white;}
+.radio-text{font-size:13px;font-weight:500;color:var(--text);}
+.radio-item.sel .radio-text{color:var(--red-d);font-weight:600;}
 
-/* ── sRPE SCREEN ────────────────────────────────────── */
-.srpe-scale { display:flex; flex-direction:column; gap:6px; }
-.srpe-row { display:flex; align-items:center; gap:10px; padding:10px 14px; border:1.5px solid var(--border); border-radius:10px; cursor:pointer; transition:all 0.15s; background:var(--off); }
-.srpe-row:active { transform:scale(0.98); }
-.srpe-row.selected { border-color:var(--red); background:var(--red-l); }
-.srpe-num { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:Arial,sans-serif; font-size:13px; font-weight:700; color:#fff; flex-shrink:0; }
-.srpe-btn { display:none; }
-.mol-btn  { display:flex; }
+/* PHASE */
+.phase-list{display:flex;flex-direction:column;gap:6px;}
+.phase-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--off);}
+.phase-item.sel{border-color:var(--red);background:var(--red-l);}
+.phase-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.phase-name{font-size:13px;font-weight:600;color:var(--text);}
+.phase-days{font-size:11px;color:var(--text-s);}
 
-/* ── CONFIRMATION ───────────────────────────────────── */
-.confirm-screen { display:none; min-height:100vh; flex-direction:column; align-items:center; justify-content:center; padding:40px 24px; text-align:center; background:var(--off); }
-.confirm-screen.show { display:flex; }
-.confirm-logo   { width:80px; height:80px; border-radius:50%; background:white; padding:8px; box-shadow:var(--shadow); margin-bottom:20px; }
-.confirm-logo img { width:100%; height:100%; object-fit:contain; }
-.confirm-title  { font-family:'Arial Narrow',Arial,sans-serif; font-size:28px; font-weight:800; color:var(--text); margin-bottom:8px; }
-.confirm-text   { font-size:15px; color:var(--text-s); line-height:1.6; margin-bottom:24px; }
-.confirm-score-card { background:white; border-radius:var(--radius); padding:20px 24px; width:100%; max-width:300px; box-shadow:var(--shadow); margin-bottom:16px; }
-.confirm-score-num   { font-family:'Arial Narrow',Arial,sans-serif; font-size:52px; font-weight:800; line-height:1; }
-.confirm-score-label { font-size:13px; font-weight:600; margin-top:4px; }
-.confirm-score-sub   { font-size:12px; color:var(--text-s); margin-top:4px; }
-.confirm-footer { font-size:12px; color:var(--gray); margin-top:8px; }
+/* CHIPS */
+.chip-grid{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{padding:7px 13px;border:1.5px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;color:var(--text-s);background:var(--off);cursor:pointer;transition:all 0.15s;user-select:none;}
+.chip.sel{background:var(--red-l);border-color:var(--red);color:var(--red-d);font-weight:600;}
+.chip.none.sel{background:var(--green-l);border-color:var(--green);color:#085041;}
+
+/* INPUTS */
+.text-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:Arial,sans-serif;font-size:14px;color:var(--text);background:var(--off);transition:border-color 0.15s;-webkit-appearance:none;}
+.text-input:focus{outline:none;border-color:var(--red);background:white;}
+.text-input::placeholder{color:#AAAAAA;}
+textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
+.cycle-note{background:#FEF9F9;border:1px solid #F5C6C6;border-radius:8px;padding:8px 12px;font-size:11px;color:#922B21;margin-bottom:12px;line-height:1.5;}
+
+/* sRPE ROWS */
+.srpe-list{display:flex;flex-direction:column;gap:6px;}
+.srpe-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--off);}
+.srpe-row:active{transform:scale(0.98);}
+.srpe-row.sel{border-color:var(--red);background:var(--red-l);}
+.srpe-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0;}
+
+/* SUBMIT */
+.submit-btn{width:100%;background:var(--red);color:white;border:none;border-radius:var(--radius);padding:16px;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.15s;box-shadow:0 4px 14px rgba(192,57,43,0.4);}
+.submit-btn:active{transform:scale(0.98);background:var(--red-d);}
+.submit-btn:disabled{background:#ccc;box-shadow:none;cursor:not-allowed;}
+.privacy-note{text-align:center;font-size:11px;color:var(--gray);margin-top:10px;}
+
+/* FULLPAGE SCREENS */
+.fullpage{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:var(--off);}
+.fullpage.show{display:flex;}
+.fp-logo{width:80px;height:80px;border-radius:50%;background:white;padding:8px;box-shadow:var(--shadow);margin-bottom:20px;}
+.fp-logo img{width:100%;height:100%;object-fit:contain;}
+.fp-icon{font-size:52px;margin-bottom:12px;}
+.fp-title{font-size:26px;font-weight:800;color:var(--text);margin-bottom:8px;}
+.fp-text{font-size:15px;color:var(--text-s);line-height:1.6;margin-bottom:24px;}
+.fp-card{background:white;border-radius:var(--radius);padding:20px 24px;width:100%;max-width:300px;box-shadow:var(--shadow);margin-bottom:16px;text-align:center;}
+.fp-card-icon{font-size:40px;margin-bottom:8px;}
+.fp-card-title{font-size:16px;font-weight:700;margin-bottom:4px;}
+.fp-card-sub{font-size:12px;color:var(--text-s);}
+.fp-btn{background:var(--red);color:white;border:none;border-radius:var(--radius);padding:14px 28px;font-size:16px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 14px rgba(192,57,43,0.35);width:100%;max-width:300px;margin-bottom:10px;}
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════
-     PIN SCREEN
-════════════════════════════════════════════════════════ -->
+<!-- ═══ PIN SCREEN ═══════════════════════════════════════ -->
 <div id="pin-screen" class="pin-screen">
-  <div class="pin-logo">
-    <img src="logo.png" alt="Granada CF">
-  </div>
+  <div class="pin-logo"><img src="logo.png" alt="Granada CF"></div>
   <div class="pin-club">Granada CF · Sección Femenina</div>
   <div class="pin-title">Wellness</div>
-  <div class="pin-subtitle">Introduce tu código de acceso<br>para entrar al cuestionario</div>
-
+  <div class="pin-sub">Introduce tu código de acceso<br>para entrar al cuestionario</div>
   <div class="pin-card">
-    <div class="pin-player-name" id="pin-player-name">&nbsp;</div>
-    <div class="pin-player-pos"  id="pin-player-pos">&nbsp;</div>
+    <div class="pin-player-name" id="pin-name">&nbsp;</div>
     <div class="pin-dots">
-      <div class="pin-dot" id="dot-0"></div>
-      <div class="pin-dot" id="dot-1"></div>
-      <div class="pin-dot" id="dot-2"></div>
-      <div class="pin-dot" id="dot-3"></div>
-      <div class="pin-dot" id="dot-4"></div>
-      <div class="pin-dot" id="dot-5"></div>
-      <div class="pin-dot" id="dot-6"></div>
-      <div class="pin-dot" id="dot-7"></div>
+      <div class="pin-dot" id="d0"></div><div class="pin-dot" id="d1"></div>
+      <div class="pin-dot" id="d2"></div><div class="pin-dot" id="d3"></div>
+      <div class="pin-dot" id="d4"></div><div class="pin-dot" id="d5"></div>
+      <div class="pin-dot" id="d6"></div><div class="pin-dot" id="d7"></div>
     </div>
-    <div style="width:100%;">
-      <input type="text" id="pin-input"
-        maxlength="8"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="none"
-        spellcheck="false"
-        placeholder="Tu código de acceso"
-        oninput="pinInputChange(this)"
-        onkeydown="if(event.key==='Enter') validatePin()"
-        style="width:100%;padding:14px 16px;border:1.5px solid #E8E8E8;border-radius:12px;
-               font-family:'Arial Narrow',Arial,sans-serif;font-size:22px;font-weight:700;
-               letter-spacing:0.18em;text-align:center;color:#1A1A1A;background:#F7F7F7;
-               -webkit-appearance:none;outline:none;margin-bottom:12px;">
-      <button onclick="validatePin()"
-        style="width:100%;background:#C0392B;color:white;border:none;border-radius:12px;
-               padding:14px;font-family:'Arial Narrow',Arial,sans-serif;font-size:17px;
-               font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;">
-        Acceder
-      </button>
-    </div>
-    <div class="pin-error-msg" id="pin-error"></div>
+    <input type="text" id="pin-input" class="pin-input" maxlength="8"
+      autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+      placeholder="Tu código" oninput="onPinInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="pin-btn" onclick="doLogin()">Acceder</button>
+    <div class="pin-error" id="pin-error"></div>
     <div class="pin-hint">Código de 8 caracteres asignado por el staff</div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     FORM SCREEN
-════════════════════════════════════════════════════════ -->
-<div id="form-screen" style="display:none;">
-
+<!-- ═══ WELLNESS SCREEN ══════════════════════════════════ -->
+<div id="wellness-screen" style="display:none;">
   <div class="app-header">
     <div class="header-top">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="Granada CF">
-      </div>
-      <div class="header-text">
+      <div class="logo-wrap"><img src="logo.png" alt="GCF"></div>
+      <div style="flex:1;">
         <div class="header-club">Granada CF</div>
         <div class="header-title">Wellness</div>
       </div>
-      <div class="header-player">
-        <div class="player-chip" id="header-player-name">Jugadora</div>
-      </div>
+      <div class="player-chip" id="w-player-chip">Jugadora</div>
     </div>
     <div class="progress-wrap">
       <div class="progress-meta">
-        <span id="progress-text">0 de 12 completadas</span>
-        <span id="progress-pct">0%</span>
+        <span id="prog-text">0 de 12 completadas</span>
+        <span id="prog-pct">0%</span>
       </div>
-      <div class="progress-track">
-        <div class="progress-fill" id="progress-bar" style="width:0%"></div>
-      </div>
+      <div class="progress-track"><div class="progress-fill" id="prog-bar" style="width:0%"></div></div>
     </div>
   </div>
-
   <div class="main">
-    <!-- Switcher manual -->
     <div class="mode-switcher">
-      <button class="mode-btn mode-active" id="btn-wellness" onclick="switchMode('wellness')">🛌 Wellness pre-entreno</button>
-      <button class="mode-btn" id="btn-srpe" onclick="switchMode('srpe')">💪 Valorar entrenamiento</button>
+      <button class="mode-btn active" onclick="goMode('wellness')">🛌 Wellness pre-entreno</button>
+      <button class="mode-btn" onclick="goMode('srpe')">💪 Valorar entrenamiento</button>
     </div>
-
-    <div class="limit-notice">
-      ⏰ Completa este formulario <strong>antes del entrenamiento de hoy</strong>. El staff lo recibe al instante.
-    </div>
+    <div class="limit-notice">⏰ Completa este formulario <strong>antes del entrenamiento de hoy</strong>. El staff lo recibe al instante.</div>
 
     <!-- BLOQUE 1 -->
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#E8F4FD;">🛌</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#1A5276;">Recuperación física</div>
-          <div class="block-sub">Sueño, fatiga y disponibilidad</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#1A5276;">Recuperación física</div><div class="block-sub">Sueño, fatiga y disponibilidad</div></div>
         <div class="block-pts">25 pts</div>
       </div>
       <div class="block-body">
-        <div class="question">
-          <div class="q-label">1. Calidad del sueño anoche</div>
+        <div><div class="q-label">1. Calidad del sueño anoche</div>
           <div class="scale-buttons" data-q="q1">
-            <button class="scale-btn s1" onclick="selectScale(this,'q1')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q1')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q1')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q1')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q1')" data-val="5">5</button>
-          </div>
-          <div class="scale-ends"><span>Muy mal</span><span>Muy bien</span></div>
+            <button class="scale-btn s1" onclick="selScale(this,'q1')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q1')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q1')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q1')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q1')" data-v="5">5</button>
+          </div><div class="scale-ends"><span>Muy mal</span><span>Muy bien</span></div>
         </div>
-        <div class="question">
-          <div class="q-label">2. Horas de sueño</div>
+        <div><div class="q-label">2. Horas de sueño</div>
           <div class="radio-list" id="rg-q2">
-            <div class="radio-item" onclick="selectRadio(this,'q2','1')"><div class="radio-dot"></div><div class="radio-text">Menos de 5 horas</div></div>
-            <div class="radio-item" onclick="selectRadio(this,'q2','2')"><div class="radio-dot"></div><div class="radio-text">Entre 5 y 6 horas</div></div>
-            <div class="radio-item" onclick="selectRadio(this,'q2','3')"><div class="radio-dot"></div><div class="radio-text">Entre 6 y 7 horas</div></div>
-            <div class="radio-item" onclick="selectRadio(this,'q2','4')"><div class="radio-dot"></div><div class="radio-text">Entre 7 y 8 horas</div></div>
-            <div class="radio-item" onclick="selectRadio(this,'q2','5')"><div class="radio-dot"></div><div class="radio-text">Más de 8 horas</div></div>
+            <div class="radio-item" onclick="selRadio(this,'q2','1')"><div class="radio-dot"></div><div class="radio-text">Menos de 5 horas</div></div>
+            <div class="radio-item" onclick="selRadio(this,'q2','2')"><div class="radio-dot"></div><div class="radio-text">Entre 5 y 6 horas</div></div>
+            <div class="radio-item" onclick="selRadio(this,'q2','3')"><div class="radio-dot"></div><div class="radio-text">Entre 6 y 7 horas</div></div>
+            <div class="radio-item" onclick="selRadio(this,'q2','4')"><div class="radio-dot"></div><div class="radio-text">Entre 7 y 8 horas</div></div>
+            <div class="radio-item" onclick="selRadio(this,'q2','5')"><div class="radio-dot"></div><div class="radio-text">Más de 8 horas</div></div>
           </div>
         </div>
-        <div class="question">
-          <div class="q-label">3. Fatiga general hoy</div>
-          <div class="scale-buttons" data-q="q3">
-            <button class="scale-btn s1" onclick="selectScale(this,'q3')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q3')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q3')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q3')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q3')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">3. Fatiga general hoy</div>
+          <div class="scale-buttons" data-q="q3"><button class="scale-btn s1" onclick="selScale(this,'q3')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q3')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q3')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q3')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q3')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Muy cansada</span><span>Muy descansada</span></div>
         </div>
-        <div class="question">
-          <div class="q-label">4. Dolor muscular (agujetas)</div>
-          <div class="scale-buttons" data-q="q4">
-            <button class="scale-btn s1" onclick="selectScale(this,'q4')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q4')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q4')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q4')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q4')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">4. Dolor muscular (agujetas)</div>
+          <div class="scale-buttons" data-q="q4"><button class="scale-btn s1" onclick="selScale(this,'q4')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q4')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q4')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q4')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q4')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Dolor alto</span><span>Sin dolor</span></div>
         </div>
-        <div class="question">
-          <div class="q-label">5. Disponibilidad para entrenar hoy</div>
-          <div class="scale-buttons" data-q="q5">
-            <button class="scale-btn s1" onclick="selectScale(this,'q5')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q5')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q5')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q5')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q5')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">5. Disponibilidad para entrenar</div>
+          <div class="scale-buttons" data-q="q5"><button class="scale-btn s1" onclick="selScale(this,'q5')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q5')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q5')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q5')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q5')" data-v="5">5</button></div>
           <div class="scale-ends"><span>No puedo</span><span>Al 100%</span></div>
         </div>
       </div>
@@ -343,45 +236,20 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#EBF5FB;">🧠</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#1A5276;">Estado mental</div>
-          <div class="block-sub">Ánimo, estrés y motivación</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#1A5276;">Estado mental</div><div class="block-sub">Ánimo, estrés y motivación</div></div>
         <div class="block-pts">15 pts</div>
       </div>
       <div class="block-body">
-        <div class="question">
-          <div class="q-label">6. Estado de ánimo</div>
-          <div class="scale-buttons" data-q="q6">
-            <button class="scale-btn s1" onclick="selectScale(this,'q6')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q6')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q6')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q6')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q6')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">6. Estado de ánimo</div>
+          <div class="scale-buttons" data-q="q6"><button class="scale-btn s1" onclick="selScale(this,'q6')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q6')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q6')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q6')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q6')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Muy bajo</span><span>Muy bueno</span></div>
         </div>
-        <div class="question">
-          <div class="q-label">7. Estrés extradeportivo</div>
-          <div class="q-hint">Estudios, trabajo, familia...</div>
-          <div class="scale-buttons" data-q="q7">
-            <button class="scale-btn s1" onclick="selectScale(this,'q7')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q7')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q7')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q7')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q7')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">7. Estrés extradeportivo</div><div class="q-hint">Estudios, trabajo, familia...</div>
+          <div class="scale-buttons" data-q="q7"><button class="scale-btn s1" onclick="selScale(this,'q7')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q7')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q7')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q7')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q7')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Estrés alto</span><span>Sin estrés</span></div>
         </div>
-        <div class="question">
-          <div class="q-label">8. Motivación para entrenar</div>
-          <div class="scale-buttons" data-q="q8">
-            <button class="scale-btn s1" onclick="selectScale(this,'q8')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q8')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q8')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q8')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q8')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">8. Motivación para entrenar</div>
+          <div class="scale-buttons" data-q="q8"><button class="scale-btn s1" onclick="selScale(this,'q8')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q8')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q8')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q8')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q8')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Ninguna</span><span>Muy alta</span></div>
         </div>
       </div>
@@ -391,33 +259,16 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#FEF9E7;">⚡</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#7D6608;">Nutrición e hidratación</div>
-          <div class="block-sub">Desde el último entrenamiento</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#7D6608;">Nutrición e hidratación</div><div class="block-sub">Desde el último entrenamiento</div></div>
         <div class="block-pts">10 pts</div>
       </div>
       <div class="block-body">
-        <div class="question">
-          <div class="q-label">9. Alimentación</div>
-          <div class="scale-buttons" data-q="q9">
-            <button class="scale-btn s1" onclick="selectScale(this,'q9')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q9')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q9')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q9')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q9')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">9. Alimentación</div>
+          <div class="scale-buttons" data-q="q9"><button class="scale-btn s1" onclick="selScale(this,'q9')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q9')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q9')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q9')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q9')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Muy mala</span><span>Excelente</span></div>
         </div>
-        <div class="question">
-          <div class="q-label">10. Hidratación</div>
-          <div class="scale-buttons" data-q="q10">
-            <button class="scale-btn s1" onclick="selectScale(this,'q10')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q10')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q10')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q10')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q10')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">10. Hidratación</div>
+          <div class="scale-buttons" data-q="q10"><button class="scale-btn s1" onclick="selScale(this,'q10')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q10')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q10')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q10')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q10')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Muy poca</span><span>Muy buena</span></div>
         </div>
       </div>
@@ -427,49 +278,36 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#FDEDEC;">🌙</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#922B21;">Ciclo menstrual</div>
-          <div class="block-sub">Contexto para el staff</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#922B21;">Ciclo menstrual</div><div class="block-sub">Contexto para el staff</div></div>
         <div class="block-pts">Contexto</div>
       </div>
       <div class="block-body">
         <div class="cycle-note">🔒 Solo lo ve el cuerpo técnico. Ayuda a adaptar la sesión a tu estado real.</div>
-        <div class="question">
-          <div class="q-label">11. Fase actual del ciclo</div>
+        <div><div class="q-label">11. Fase actual del ciclo</div>
           <div class="phase-list" id="rg-q11">
-            <div class="phase-item" onclick="selectRadio(this,'q11','1')"><div class="phase-dot" style="background:#E74C3C;"></div><div class="phase-text"><div class="phase-name">Menstruación</div><div class="phase-days">Día 1–5</div></div></div>
-            <div class="phase-item" onclick="selectRadio(this,'q11','2')"><div class="phase-dot" style="background:#E67E22;"></div><div class="phase-text"><div class="phase-name">Folicular temprana</div><div class="phase-days">Día 6–10</div></div></div>
-            <div class="phase-item" onclick="selectRadio(this,'q11','3')"><div class="phase-dot" style="background:#1D9E75;"></div><div class="phase-text"><div class="phase-name">Ovulación ← Pico de rendimiento</div><div class="phase-days">Día 11–16</div></div></div>
-            <div class="phase-item" onclick="selectRadio(this,'q11','4')"><div class="phase-dot" style="background:#2980B9;"></div><div class="phase-text"><div class="phase-name">Lútea temprana ← Alta disponibilidad</div><div class="phase-days">Día 17–23</div></div></div>
-            <div class="phase-item" onclick="selectRadio(this,'q11','5')"><div class="phase-dot" style="background:#8E44AD;"></div><div class="phase-text"><div class="phase-name">Lútea tardía / Premenstrual</div><div class="phase-days">Día 24–28</div></div></div>
-            <div class="phase-item" onclick="selectRadio(this,'q11','6')"><div class="phase-dot" style="background:#888;"></div><div class="phase-text"><div class="phase-name">Anticonceptivos hormonales</div><div class="phase-days">Píldora, DIU hormonal...</div></div></div>
-            <div class="phase-item" onclick="selectRadio(this,'q11','7')"><div class="phase-dot" style="background:#ccc;"></div><div class="phase-text"><div class="phase-name">No lo sé / ciclo irregular</div><div class="phase-days"></div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','1')"><div class="phase-dot" style="background:#E74C3C;"></div><div><div class="phase-name">Menstruación</div><div class="phase-days">Día 1–5</div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','2')"><div class="phase-dot" style="background:#E67E22;"></div><div><div class="phase-name">Folicular temprana</div><div class="phase-days">Día 6–10</div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','3')"><div class="phase-dot" style="background:#1D9E75;"></div><div><div class="phase-name">Ovulación ← Pico de rendimiento</div><div class="phase-days">Día 11–16</div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','4')"><div class="phase-dot" style="background:#2980B9;"></div><div><div class="phase-name">Lútea temprana ← Alta disponibilidad</div><div class="phase-days">Día 17–23</div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','5')"><div class="phase-dot" style="background:#8E44AD;"></div><div><div class="phase-name">Lútea tardía / Premenstrual</div><div class="phase-days">Día 24–28</div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','6')"><div class="phase-dot" style="background:#888;"></div><div><div class="phase-name">Anticonceptivos hormonales</div><div class="phase-days">Píldora, DIU hormonal...</div></div></div>
+            <div class="phase-item" onclick="selRadio(this,'q11','7')"><div class="phase-dot" style="background:#ccc;"></div><div><div class="phase-name">No lo sé / ciclo irregular</div><div class="phase-days"></div></div></div>
           </div>
         </div>
-        <div class="question">
-          <div class="q-label">12. Síntomas hoy</div>
-          <div class="q-hint">Selecciona todos los que tengas</div>
+        <div><div class="q-label">12. Síntomas hoy</div><div class="q-hint">Selecciona todos los que tengas</div>
           <div class="chip-grid" id="chips-q12">
-            <div class="chip" onclick="toggleChip(this)">Dismenorrea</div>
-            <div class="chip" onclick="toggleChip(this)">Fatiga del ciclo</div>
-            <div class="chip" onclick="toggleChip(this)">Distensión</div>
-            <div class="chip" onclick="toggleChip(this)">Cefalea</div>
-            <div class="chip" onclick="toggleChip(this)">Cambios de humor</div>
-            <div class="chip" onclick="toggleChip(this)">Náuseas</div>
-            <div class="chip" onclick="toggleChip(this)">Alteración del sueño</div>
-            <div class="chip none-chip" onclick="toggleChip(this)">Ninguno</div>
+            <div class="chip" onclick="togChip(this)">Dismenorrea</div>
+            <div class="chip" onclick="togChip(this)">Fatiga del ciclo</div>
+            <div class="chip" onclick="togChip(this)">Distensión</div>
+            <div class="chip" onclick="togChip(this)">Cefalea</div>
+            <div class="chip" onclick="togChip(this)">Cambios de humor</div>
+            <div class="chip" onclick="togChip(this)">Náuseas</div>
+            <div class="chip" onclick="togChip(this)">Alteración del sueño</div>
+            <div class="chip none" onclick="togChip(this)">Ninguno</div>
           </div>
         </div>
-        <div class="question">
-          <div class="q-label">13. Impacto del ciclo en el rendimiento hoy</div>
-          <div class="scale-buttons" data-q="q13">
-            <button class="scale-btn s1" onclick="selectScale(this,'q13')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q13')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q13')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q13')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q13')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">13. Impacto del ciclo en el rendimiento hoy</div>
+          <div class="scale-buttons" data-q="q13"><button class="scale-btn s1" onclick="selScale(this,'q13')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q13')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q13')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q13')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q13')" data-v="5">5</button></div>
           <div class="scale-ends"><span>No puedo entrenar</span><span>Sin impacto</span></div>
         </div>
       </div>
@@ -479,197 +317,147 @@ textarea.text-input { resize:none; min-height:80px; line-height:1.5; }
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#F4ECF7;">🩹</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#6C3483;">Molestias físicas</div>
-          <div class="block-sub">Alerta automática al staff si hay dolor</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#6C3483;">Molestias físicas</div><div class="block-sub">Alerta automática al staff si hay dolor</div></div>
         <div class="block-pts">5 pts</div>
       </div>
       <div class="block-body">
-        <div class="question">
-          <div class="q-label">14. Nivel de dolor o molestia hoy</div>
-          <div class="scale-buttons" data-q="q14">
-            <button class="scale-btn s1" onclick="selectScale(this,'q14')" data-val="1">1</button>
-            <button class="scale-btn s2" onclick="selectScale(this,'q14')" data-val="2">2</button>
-            <button class="scale-btn s3" onclick="selectScale(this,'q14')" data-val="3">3</button>
-            <button class="scale-btn s4" onclick="selectScale(this,'q14')" data-val="4">4</button>
-            <button class="scale-btn s5" onclick="selectScale(this,'q14')" data-val="5">5</button>
-          </div>
+        <div><div class="q-label">14. Nivel de dolor o molestia hoy</div>
+          <div class="scale-buttons" data-q="q14"><button class="scale-btn s1" onclick="selScale(this,'q14')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q14')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q14')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q14')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q14')" data-v="5">5</button></div>
           <div class="scale-ends"><span>Dolor severo</span><span>Sin molestias</span></div>
         </div>
-        <div class="question" id="zona-wrap" style="display:none;">
-          <div class="q-label">15. Zona afectada</div>
+        <div id="zona-wrap" style="display:none;"><div class="q-label">15. Zona afectada</div>
           <input type="text" class="text-input" id="q15" placeholder="Ej: Rodilla derecha — crujido al bajar escaleras">
         </div>
-        <div class="question">
-          <div class="q-label">16. Comentario para el staff <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
+        <div><div class="q-label">16. Comentario para el staff <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
           <textarea class="text-input" id="q16" rows="3" placeholder="Situación personal, viaje, algo del último entreno..."></textarea>
         </div>
       </div>
     </div>
 
-    <!-- SCORE + SUBMIT -->
-    <div class="submit-section">
-      <div class="score-preview">
-        <div class="score-circle" id="score-circle">
-          <span class="num" id="score-num" style="color:var(--gray);">—</span>
-          <span class="max">/60</span>
-        </div>
-        <div class="score-info">
-          <div class="score-status" id="score-status" style="color:var(--gray);">Completa el formulario</div>
-          <div class="score-tip"   id="score-tip">El staff lo recibirá al instante</div>
-          <div class="score-bar-wrap"><div class="score-bar-fill" id="score-bar" style="width:0%;background:var(--gray-l);"></div></div>
-        </div>
-      </div>
-      <button class="submit-btn" id="submit-btn" onclick="submitForm()">Enviar al staff</button>
+    <div style="padding:8px 0 0;">
+      <button class="submit-btn" id="w-submit-btn" onclick="submitWellness()">Enviar al staff</button>
       <div class="privacy-note">🔒 Datos confidenciales · Solo los ve el staff de Granada CF</div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     sRPE SCREEN
-════════════════════════════════════════════════════════ -->
-<div id="srpe-screen" style="display:none;">
+<!-- ═══ WELLNESS YA HECHO ════════════════════════════════ -->
+<div id="done-screen" class="fullpage">
+  <div class="fp-logo"><img src="logo.png" alt="Granada CF"></div>
+  <div class="fp-icon">✅</div>
+  <div class="fp-title">Wellness completado</div>
+  <div class="fp-text" id="done-text">Ya rellenaste el wellness de hoy.<br>Recuerda valorar el entrenamiento después.</div>
+  <button class="fp-btn" onclick="goMode('srpe')">💪 Valorar el entrenamiento</button>
+  <div style="font-size:12px;color:var(--gray);">Recuerda rellenar el sRPE después del entreno</div>
+</div>
 
+<!-- ═══ sRPE SCREEN ══════════════════════════════════════ -->
+<div id="srpe-screen" style="display:none;">
   <div class="app-header">
     <div class="header-top">
-      <div class="logo-wrap"><img src="logo.png" alt="Granada CF"></div>
-      <div class="header-text">
+      <div class="logo-wrap"><img src="logo.png" alt="GCF"></div>
+      <div style="flex:1;">
         <div class="header-club">Granada CF</div>
         <div class="header-title">Wellness</div>
       </div>
-      <div class="header-player">
-        <div class="player-chip" id="srpe-player-name">Jugadora</div>
-      </div>
+      <div class="player-chip" id="s-player-chip">Jugadora</div>
     </div>
   </div>
-
   <div class="main" style="padding-top:14px;">
-
-    <!-- Switcher manual -->
     <div class="mode-switcher">
-      <button class="mode-btn" id="btn-wellness" onclick="switchMode('wellness')">🛌 Wellness pre-entreno</button>
-      <button class="mode-btn mode-active" id="btn-srpe" onclick="switchMode('srpe')">💪 Valorar entrenamiento</button>
+      <button class="mode-btn" onclick="goMode('wellness')">🛌 Wellness pre-entreno</button>
+      <button class="mode-btn active" onclick="goMode('srpe')">💪 Valorar entrenamiento</button>
     </div>
 
-    <!-- Bloque sRPE -->
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#E8F4FD;">💪</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#1A5276;">Esfuerzo percibido — Borg CR-10</div>
-          <div class="block-sub">¿Cómo fue el esfuerzo total de la sesión?</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#1A5276;">Esfuerzo percibido — Borg CR-10</div><div class="block-sub">¿Cómo fue el esfuerzo total de la sesión?</div></div>
       </div>
       <div class="block-body">
-        <div class="question">
-          <div class="q-hint">Piensa en el esfuerzo TOTAL de todo el entrenamiento, no en momentos puntuales.</div>
-          <div class="srpe-scale">
-            <div class="srpe-row" onclick="selectSRPE(this,1)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#1D9E75;">1</div><div><div style="font-size:13px;font-weight:600;">Muy, muy fácil</div><div style="font-size:11px;color:var(--gray);">Paseo sin esfuerzo</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,2)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#27AE60;">2</div><div><div style="font-size:13px;font-weight:600;">Fácil</div><div style="font-size:11px;color:var(--gray);">Calentamiento suave</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,3)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#97C459;">3</div><div><div style="font-size:13px;font-weight:600;">Moderado</div><div style="font-size:11px;color:var(--gray);">Charla técnica, rondos lentos</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,4)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#EF9F27;">4</div><div><div style="font-size:13px;font-weight:600;">Algo duro</div><div style="font-size:11px;color:var(--gray);">Trabajo técnico-táctico normal</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,5)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#E67E22;">5</div><div><div style="font-size:13px;font-weight:600;">Duro</div><div style="font-size:11px;color:var(--gray);">Partido de entrenamiento normal</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,6)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#E67E22;">6</div><div><div style="font-size:13px;font-weight:600;">Duro+</div><div style="font-size:11px;color:var(--gray);">Trabajo físico con balón, pressing</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,7)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#E74C3C;">7</div><div><div style="font-size:13px;font-weight:600;">Muy duro</div><div style="font-size:11px;color:var(--gray);">Series de sprint, alta intensidad</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,8)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#C0392B;">8</div><div><div style="font-size:13px;font-weight:600;">Muy muy duro</div><div style="font-size:11px;color:var(--gray);">Intervalos máximos o partido competitivo</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,9)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#922B21;">9</div><div><div style="font-size:13px;font-weight:600;">Casi máximo</div><div style="font-size:11px;color:var(--gray);">Test físico o doble sesión</div></div></div>
-            <div class="srpe-row" onclick="selectSRPE(this,10)"><input type="radio" class="srpe-btn"><div class="srpe-num" style="background:#7B241C;">10</div><div><div style="font-size:13px;font-weight:600;">Máximo esfuerzo</div><div style="font-size:11px;color:var(--gray);">Nunca has entrenado tan duro</div></div></div>
+        <div><div class="q-hint">Piensa en el esfuerzo TOTAL de todo el entrenamiento, no en momentos puntuales.</div>
+          <div class="srpe-list">
+            <div class="srpe-row" onclick="selSRPE(this,1)"><div class="srpe-num" style="background:#1D9E75;">1</div><div><div style="font-size:13px;font-weight:600;">Muy, muy fácil</div><div style="font-size:11px;color:var(--gray);">Paseo sin esfuerzo</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,2)"><div class="srpe-num" style="background:#27AE60;">2</div><div><div style="font-size:13px;font-weight:600;">Fácil</div><div style="font-size:11px;color:var(--gray);">Calentamiento suave</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,3)"><div class="srpe-num" style="background:#97C459;">3</div><div><div style="font-size:13px;font-weight:600;">Moderado</div><div style="font-size:11px;color:var(--gray);">Charla técnica, rondos</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,4)"><div class="srpe-num" style="background:#EF9F27;">4</div><div><div style="font-size:13px;font-weight:600;">Algo duro</div><div style="font-size:11px;color:var(--gray);">Trabajo técnico-táctico normal</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,5)"><div class="srpe-num" style="background:#E67E22;">5</div><div><div style="font-size:13px;font-weight:600;">Duro</div><div style="font-size:11px;color:var(--gray);">Partido de entrenamiento normal</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,6)"><div class="srpe-num" style="background:#E67E22;">6</div><div><div style="font-size:13px;font-weight:600;">Duro+</div><div style="font-size:11px;color:var(--gray);">Trabajo físico con balón, pressing</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,7)"><div class="srpe-num" style="background:#E74C3C;">7</div><div><div style="font-size:13px;font-weight:600;">Muy duro</div><div style="font-size:11px;color:var(--gray);">Series de sprint, alta intensidad</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,8)"><div class="srpe-num" style="background:#C0392B;">8</div><div><div style="font-size:13px;font-weight:600;">Muy muy duro</div><div style="font-size:11px;color:var(--gray);">Intervalos máximos, partido competitivo</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,9)"><div class="srpe-num" style="background:#922B21;">9</div><div><div style="font-size:13px;font-weight:600;">Casi máximo</div><div style="font-size:11px;color:var(--gray);">Test físico o doble sesión</div></div></div>
+            <div class="srpe-row" onclick="selSRPE(this,10)"><div class="srpe-num" style="background:#7B241C;">10</div><div><div style="font-size:13px;font-weight:600;">Máximo esfuerzo</div><div style="font-size:11px;color:var(--gray);">Nunca has entrenado tan duro</div></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bloque molestias -->
     <div class="block">
       <div class="block-header">
         <div class="block-icon" style="background:#F4ECF7;">🩹</div>
-        <div class="block-info">
-          <div class="block-title" style="color:#6C3483;">Molestias durante el entreno</div>
-          <div class="block-sub">Si hay dolor, el staff recibe alerta automática</div>
-        </div>
+        <div style="flex:1;"><div class="block-title" style="color:#6C3483;">Molestias durante el entreno</div><div class="block-sub">Alerta automática al staff si hay dolor</div></div>
       </div>
       <div class="block-body">
-        <div class="question">
-          <div class="q-label">Nivel de molestia durante la sesión</div>
-          <div class="scale-buttons" style="margin-top:8px;">
-            <button class="scale-btn s1 mol-btn" onclick="selectMolestia(this,1)" data-val="1">1</button>
-            <button class="scale-btn s2 mol-btn" onclick="selectMolestia(this,2)" data-val="2">2</button>
-            <button class="scale-btn s3 mol-btn" onclick="selectMolestia(this,3)" data-val="3">3</button>
-            <button class="scale-btn s4 mol-btn" onclick="selectMolestia(this,4)" data-val="4">4</button>
-            <button class="scale-btn s5 mol-btn" onclick="selectMolestia(this,5)" data-val="5">5</button>
+        <div><div class="q-label">Nivel de molestia durante la sesión</div>
+          <div class="scale-buttons" data-q="smol">
+            <button class="scale-btn s1" onclick="selScale(this,'smol')" data-v="1">1</button>
+            <button class="scale-btn s2" onclick="selScale(this,'smol')" data-v="2">2</button>
+            <button class="scale-btn s3" onclick="selScale(this,'smol')" data-v="3">3</button>
+            <button class="scale-btn s4" onclick="selScale(this,'smol')" data-v="4">4</button>
+            <button class="scale-btn s5" onclick="selScale(this,'smol')" data-v="5">5</button>
           </div>
           <div class="scale-ends"><span>Dolor intenso</span><span>Sin molestias</span></div>
         </div>
-        <div id="zona-srpe-wrap" style="display:none;" class="question">
-          <div class="q-label">Zona afectada</div>
+        <div id="zona-srpe-wrap" style="display:none;"><div class="q-label">Zona afectada</div>
           <input type="text" class="text-input" id="zona-srpe" placeholder="Ej: Gemelo izquierdo — pinchazo al sprint">
         </div>
-        <div class="question">
-          <div class="q-label">Comentario <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
-          <textarea class="text-input" id="srpe-comentario" rows="3" placeholder="Cómo te has sentido, algo que notaste, una duda para el staff..."></textarea>
+        <div><div class="q-label">Comentario <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
+          <textarea class="text-input" id="srpe-coment" rows="3" placeholder="Cómo te sentiste, algo que notaste..."></textarea>
         </div>
       </div>
     </div>
 
-    <div style="padding:0 0 8px;">
-      <button class="submit-btn" id="srpe-submit-btn" onclick="submitSRPE()">Enviar valoración</button>
+    <div style="padding:8px 0 0;">
+      <button class="submit-btn" id="s-submit-btn" onclick="submitSRPE()">Enviar valoración</button>
       <div class="privacy-note">🔒 Datos confidenciales · Solo los ve el staff de Granada CF</div>
     </div>
-
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     CONFIRMATION SCREEN
-════════════════════════════════════════════════════════ -->
-<div class="confirm-screen" id="confirm-screen">
-  <div class="confirm-logo"><img src="logo.png" alt="Granada CF"></div>
-  <div style="font-size:48px;margin-bottom:12px;">✅</div>
-  <div class="confirm-title">¡Wellness enviado!</div>
-  <div class="confirm-text" id="confirm-player-text">El staff de Granada CF lo ha recibido.<br>Nos vemos en el entrenamiento. 💪</div>
-  <div class="confirm-score-card">
-    <div class="confirm-score-num"   id="confirm-num">—</div>
-    <div class="confirm-score-label" id="confirm-status">—</div>
-    <div class="confirm-score-sub"   id="confirm-sub">—</div>
+<!-- ═══ CONFIRMATION ═════════════════════════════════════ -->
+<div id="confirm-screen" class="fullpage">
+  <div class="fp-logo"><img src="logo.png" alt="Granada CF"></div>
+  <div class="fp-icon" id="c-icon">✅</div>
+  <div class="fp-title" id="c-title">¡Enviado!</div>
+  <div class="fp-text" id="c-text">El staff lo ha recibido. Nos vemos en el entrenamiento. 💪</div>
+  <div class="fp-card">
+    <div class="fp-card-icon" id="c-card-icon">📋</div>
+    <div class="fp-card-title" id="c-card-title">Wellness completado</div>
+    <div class="fp-card-sub" id="c-card-sub">El staff preparará la sesión según tu estado.</div>
   </div>
-  <div class="confirm-footer">Recibirás el recordatorio del sRPE tras el entrenamiento</div>
+  <div style="font-size:12px;color:var(--gray);" id="c-footer">Recibirás el recordatorio del sRPE tras el entrenamiento</div>
 </div>
 
 <script>
 var WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyR9LyclirVDz8y33TnV6ZMOEkklLm07OW7DQjqnr01F0ZIFLGkqyQaQ1shtFVHk0-NgQ/exec';
-
-// ── PIN system ────────────────────────────────────────
-// Players list — loaded from WebApp, here as fallback for demo
-// Format: { "1234": { name: "Ana Martínez", pos: "Portera", email: "ana@granada.com" } }
 var PLAYERS = {};
 var currentPlayer = null;
-var pinBuffer = '';
+var ans = {q1:0,q2:0,q3:0,q4:0,q5:0,q6:0,q7:0,q8:0,q9:0,q10:0,q11:0,q13:0,q14:0,smol:0};
+var SCORE_KEYS = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q13','q14'];
+var srpeVal = 0;
+var today = new Date().toISOString().substring(0,10);
 
-// Load players from localStorage (cached from last WebApp call)
+// ── Players ──────────────────────────────────────────
 function loadPlayers() {
   var cached = localStorage.getItem('gcf_players');
-  if (cached) {
-    try { PLAYERS = JSON.parse(cached); } catch(e) {}
-  }
-  // Fetch player list via POST to bypass GET cache
-  fetch(WEBAPP_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action: 'getPlayers' }),
-  })
-  .then(function(){ })
-  .catch(function(){ });
-  // Use XMLHttpRequest as fallback (bypasses some cache issues)
+  if (cached) { try { PLAYERS = JSON.parse(cached); } catch(e) {} }
   var xhr = new XMLHttpRequest();
   xhr.open('GET', WEBAPP_URL + '?action=getPlayers&v=' + Date.now(), true);
   xhr.onload = function() {
     try {
-      var data = JSON.parse(xhr.responseText);
-      if (data && data.players && Object.keys(data.players).length > 0) {
-        PLAYERS = data.players;
+      var d = JSON.parse(xhr.responseText);
+      if (d && d.players && Object.keys(d.players).length > 0) {
+        PLAYERS = d.players;
         localStorage.setItem('gcf_players', JSON.stringify(PLAYERS));
       }
     } catch(e) {}
@@ -677,317 +465,217 @@ function loadPlayers() {
   xhr.send();
 }
 
-// Check if player already logged in this session
-function checkSession() {
-  var saved = localStorage.getItem('gcf_current_player');
-  if (saved) {
-    try {
-      var p = JSON.parse(saved);
-      currentPlayer = p;
-      showForm();
-      return;
-    } catch(e) {}
+// ── PIN ──────────────────────────────────────────────
+function onPinInput(inp) {
+  var clean = inp.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase().slice(0,8);
+  inp.value = clean;
+  for (var i=0;i<8;i++) {
+    var d = document.getElementById('d'+i);
+    d.classList.toggle('filled', i < clean.length);
   }
-  document.getElementById('pin-screen').style.display = 'flex';
-}
-
-function pinInputChange(input) {
-  // Normalize to uppercase, only letters and numbers
-  var clean = input.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 8);
-  input.value = clean;
-  pinBuffer = clean;
-  updatePinDots();
   document.getElementById('pin-error').textContent = '';
-  document.getElementById('pin-player-name').innerHTML = '&nbsp;';
-  document.getElementById('pin-player-pos').innerHTML = '&nbsp;';
+  var p = PLAYERS[clean];
+  document.getElementById('pin-name').textContent = (clean.length===8 && p) ? p.name : ' ';
 }
 
-function pinPress(digit) { /* legacy — not used */ }
-function pinDelete()     { /* legacy — not used */ }
-
-function updatePinDots() {
-  for (var i = 0; i < 8; i++) {
-    var dot = document.getElementById('dot-' + i);
-    if (!dot) continue;
-    dot.classList.remove('filled','error','success');
-    if (i < pinBuffer.length) dot.classList.add('filled');
-  }
-}
-
-function validatePin() {
-  var code = pinBuffer.trim().toUpperCase();
-  if (code.length < 8) {
-    document.getElementById('pin-error').textContent = 'El código debe tener 8 caracteres.';
-    return;
-  }
+function doLogin() {
+  var code = (document.getElementById('pin-input').value||'').toUpperCase().trim();
   var player = PLAYERS[code];
   if (player) {
-    for (var i = 0; i < 8; i++) {
-      var dot = document.getElementById('dot-' + i);
-      if (dot) { dot.classList.remove('filled'); dot.classList.add('success'); }
-    }
+    for (var i=0;i<8;i++) { var d=document.getElementById('d'+i); d.classList.remove('filled'); d.classList.add('success'); }
     currentPlayer = player;
     localStorage.setItem('gcf_current_player', JSON.stringify(player));
-    setTimeout(showForm, 500);
+    setTimeout(enterApp, 500);
   } else {
-    for (var i = 0; i < 8; i++) {
-      var dot = document.getElementById('dot-' + i);
-      if (dot) { dot.classList.remove('filled'); dot.classList.add('error'); }
-    }
+    for (var i=0;i<8;i++) { var d=document.getElementById('d'+i); d.classList.remove('filled'); d.classList.add('error'); }
     document.getElementById('pin-error').textContent = 'Código incorrecto. Compruébalo e inténtalo de nuevo.';
-    var inp = document.getElementById('pin-input');
-    if (inp) inp.style.borderColor = '#C0392B';
     setTimeout(function() {
-      pinBuffer = '';
-      var inp = document.getElementById('pin-input');
-      if (inp) { inp.value = ''; inp.style.borderColor = '#E8E8E8'; }
-      for (var i = 0; i < 8; i++) {
-        var dot = document.getElementById('dot-' + i);
-        if (dot) dot.classList.remove('error');
-      }
+      document.getElementById('pin-input').value='';
+      for (var i=0;i<8;i++) document.getElementById('d'+i).classList.remove('error','filled');
     }, 1000);
   }
 }
 
-function showForm() {
+function checkSession() {
+  var saved = localStorage.getItem('gcf_current_player');
+  if (saved) { try { currentPlayer = JSON.parse(saved); enterApp(); return; } catch(e) {} }
+  document.getElementById('pin-screen').style.display = 'flex';
+}
+
+function enterApp() {
   document.getElementById('pin-screen').style.display = 'none';
-  if (currentPlayer) {
-    document.getElementById('header-player-name').textContent = currentPlayer.name;
-    document.getElementById('srpe-player-name').textContent   = currentPlayer.name;
-  }
-  detectMode();
-}
+  var name = currentPlayer ? currentPlayer.name : 'Jugadora';
+  document.getElementById('w-player-chip').textContent = name;
+  document.getElementById('s-player-chip').textContent = name;
 
-// ── Form logic ────────────────────────────────────────
-var answers = { q1:0,q2:0,q3:0,q4:0,q5:0,q6:0,q7:0,q8:0,q9:0,q10:0,q11:0,q13:0,q14:0 };
-var SCORE_KEYS = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q13','q14'];
-
-function selectScale(btn, qKey) {
-  var group = btn.closest('[data-q]');
-  group.querySelectorAll('.scale-btn').forEach(function(b){ b.classList.remove('selected'); });
-  btn.classList.add('selected');
-  answers[qKey] = parseInt(btn.dataset.val);
-  if (qKey === 'q14') {
-    document.getElementById('zona-wrap').style.display = answers.q14 <= 3 ? 'block' : 'none';
-  }
-  updateScore();
-}
-
-function selectRadio(item, qKey, val) {
-  item.parentElement.querySelectorAll('.radio-item,.phase-item').forEach(function(i){ i.classList.remove('selected'); });
-  item.classList.add('selected');
-  answers[qKey] = parseInt(val);
-  updateScore();
-}
-
-function toggleChip(chip) {
-  var isNone = chip.classList.contains('none-chip');
-  var grid = chip.parentElement;
-  if (isNone) {
-    grid.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('selected'); });
-    chip.classList.add('selected');
+  // Check if wellness already done today
+  var donePRE = localStorage.getItem('gcf_w_done_' + today);
+  if (donePRE) {
+    showDone();
   } else {
-    grid.querySelector('.none-chip').classList.remove('selected');
-    chip.classList.toggle('selected');
+    // Auto-detect mode by hour
+    var hour = new Date().getHours();
+    goMode(hour >= 15 ? 'srpe' : 'wellness');
   }
 }
 
-function updateScore() {
-  var total = 0, answered = 0;
-  SCORE_KEYS.forEach(function(k){ if (answers[k] > 0) { total += answers[k]; answered++; } });
-  var pct = Math.round(answered / SCORE_KEYS.length * 100);
-  document.getElementById('progress-bar').style.width = pct + '%';
-  document.getElementById('progress-text').textContent = answered + ' de ' + SCORE_KEYS.length + ' completadas';
-  document.getElementById('progress-pct').textContent  = pct + '%';
-  if (answered === 0) return;
-  document.getElementById('score-num').textContent = total;
-  var color, status, tip;
-  if      (total >= 50) { color='#1D9E75'; status='VERDE — Al 100%';          tip='Lista para sesión completa'; }
-  else if (total >= 38) { color='#E67E22'; status='ÁMBAR — Valorar carga';    tip='El staff ajustará si es necesario'; }
-  else                  { color='#C0392B'; status='ROJO — Sesión modificada'; tip='El staff adaptará la sesión'; }
-  document.getElementById('score-circle').style.borderColor = color;
-  document.getElementById('score-num').style.color    = color;
-  document.getElementById('score-status').style.color = color;
-  document.getElementById('score-status').textContent = status;
-  document.getElementById('score-tip').textContent    = tip;
-  document.getElementById('score-bar').style.width      = Math.round(total/60*100) + '%';
-  document.getElementById('score-bar').style.background = color;
-}
-
-// ── Submit ────────────────────────────────────────────
-var isSubmitting = false;
-
-function submitForm() {
-  if (isSubmitting) return;
-  var required = ['q1','q2','q3','q4','q5','q6','q7','q8'];
-  var missing  = required.filter(function(k){ return answers[k] === 0; });
-  if (missing.length > 0) { showToast('Completa los bloques 1 y 2 antes de enviar'); return; }
-
-  isSubmitting = true;
-  var btn = document.getElementById('submit-btn');
-  btn.textContent = 'Enviando...';
-  btn.disabled = true;
-
-  var total = 0;
-  SCORE_KEYS.forEach(function(k){ total += answers[k]; });
-  var symptoms = [];
-  document.querySelectorAll('#chips-q12 .chip.selected').forEach(function(c){ symptoms.push(c.textContent.trim()); });
-
-  var payload = {
-    action:    'submitWellness',
-    email:     currentPlayer ? (currentPlayer.email || '') : '',
-    name:      currentPlayer ? currentPlayer.name : '',
-    q1:answers.q1,  q2:answers.q2,  q3:answers.q3,  q4:answers.q4,
-    q5:answers.q5,  q6:answers.q6,  q7:answers.q7,  q8:answers.q8,
-    q9:answers.q9,  q10:answers.q10, q11:answers.q11,
-    q12: symptoms,  q13:answers.q13, q14:answers.q14,
-    q15: document.getElementById('q15') ? document.getElementById('q15').value : '',
-    q16: document.getElementById('q16').value || '',
-    score: total,
-    timestamp: new Date().toISOString(),
-  };
-
-  fetch(WEBAPP_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  .then(function(){ showConfirmation(total); })
-  .catch(function(){ showConfirmation(total); });
-}
-
-function showConfirmation(total) {
-  document.getElementById('form-screen').style.display = 'none';
-  document.getElementById('confirm-screen').classList.add('show');
-  var color, status, sub;
-  if      (total >= 50) { color='#1D9E75'; status='VERDE — Al 100%';          sub='Lista para sesión completa'; }
-  else if (total >= 38) { color='#E67E22'; status='ÁMBAR — Valorar carga';    sub='El staff revisará tu estado'; }
-  else                  { color='#C0392B'; status='ROJO — Sesión modificada'; sub='El staff adaptará la sesión'; }
-  if (currentPlayer) {
-    document.getElementById('confirm-player-text').innerHTML =
-      '¡Bien hecho, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>!<br>El staff lo ha recibido. Nos vemos en el entrenamiento. 💪';
-  }
-  document.getElementById('confirm-num').textContent    = total + '/60';
-  document.getElementById('confirm-num').style.color    = color;
-  document.getElementById('confirm-status').textContent = status;
-  document.getElementById('confirm-status').style.color = color;
-  document.getElementById('confirm-sub').textContent    = sub;
-  window.scrollTo(0, 0);
-}
-
-function showToast(msg) {
-  var t = document.createElement('div');
-  t.textContent = msg;
-  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:white;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;max-width:280px;text-align:center;';
-  document.body.appendChild(t);
-  setTimeout(function(){ t.remove(); }, 3000);
-}
-
-// ── Mode detection ───────────────────────────────────
-var APP_MODE = 'wellness'; // 'wellness' or 'srpe'
-
-function detectMode() {
-  var hour = new Date().getHours();
-  // Default: before 15h = wellness, after 15h = srpe
-  // Will be overridden by calendar data if available
-  APP_MODE = hour < 15 ? 'wellness' : 'srpe';
-  // Try to get session time from WebApp
-  fetch(WEBAPP_URL + '?action=getSesionHoy&v=' + Date.now())
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      if (data && data.horaEntreno) {
-        var parts = data.horaEntreno.split(':');
-        var entrenoHour = parseInt(parts[0]);
-        APP_MODE = hour < (entrenoHour - 1) ? 'wellness' : 'srpe';
-      }
-      applyMode();
-    })
-    .catch(function(){ applyMode(); });
-}
-
-function applyMode() {
-  if (APP_MODE === 'srpe') {
-    document.getElementById('form-screen').style.display = 'none';
+// ── Mode ─────────────────────────────────────────────
+function goMode(mode) {
+  document.getElementById('wellness-screen').style.display = 'none';
+  document.getElementById('srpe-screen').style.display     = 'none';
+  document.getElementById('done-screen').classList.remove('show');
+  document.getElementById('confirm-screen').classList.remove('show');
+  if (mode === 'wellness') {
+    // If already done, redirect to done screen
+    if (localStorage.getItem('gcf_w_done_' + today)) { showDone(); return; }
+    document.getElementById('wellness-screen').style.display = 'block';
+  } else {
     document.getElementById('srpe-screen').style.display = 'block';
-  } else {
-    document.getElementById('form-screen').style.display = 'block';
-    document.getElementById('srpe-screen').style.display = 'none';
   }
-  // Update switcher buttons
-  document.getElementById('btn-wellness').classList.toggle('mode-active', APP_MODE === 'wellness');
-  document.getElementById('btn-srpe').classList.toggle('mode-active', APP_MODE === 'srpe');
-}
-
-function switchMode(mode) {
-  APP_MODE = mode;
-  applyMode();
   window.scrollTo(0,0);
 }
 
-// ── sRPE submit ───────────────────────────────────────
-var srpeAnswers = { srpe: 0, molestia: 5 };
-var isSubmittingSRPE = false;
-
-function selectSRPE(btn, val) {
-  document.querySelectorAll('.srpe-btn').forEach(function(b){ b.classList.remove('selected'); });
-  btn.classList.add('selected');
-  srpeAnswers.srpe = val;
-}
-
-function selectMolestia(btn, val) {
-  document.querySelectorAll('.mol-btn').forEach(function(b){ b.classList.remove('selected'); });
-  btn.classList.add('selected');
-  srpeAnswers.molestia = val;
-  document.getElementById('zona-srpe-wrap').style.display = val <= 3 ? 'block' : 'none';
-}
-
-function submitSRPE() {
-  if (isSubmittingSRPE) return;
-  if (!srpeAnswers.srpe) { showToast('Selecciona el nivel de esfuerzo'); return; }
-  if (!srpeAnswers.molestia) { showToast('Indica si tuviste molestias'); return; }
-
-  isSubmittingSRPE = true;
-  var btn = document.getElementById('srpe-submit-btn');
-  btn.textContent = 'Enviando...';
-  btn.disabled = true;
-
-  var payload = {
-    action:      'submitSRPE',
-    name:        currentPlayer ? currentPlayer.name  : '',
-    email:       currentPlayer ? currentPlayer.email : '',
-    srpe:        String(srpeAnswers.srpe),
-    molestia:    srpeAnswers.molestia,
-    zona:        document.getElementById('zona-srpe').value || '',
-    comentario:  document.getElementById('srpe-comentario').value || '',
-    timestamp:   new Date().toISOString(),
-  };
-
-  fetch(WEBAPP_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  .then(function(){ showSRPEConfirmation(); })
-  .catch(function(){ showSRPEConfirmation(); });
-}
-
-function showSRPEConfirmation() {
-  document.getElementById('srpe-screen').style.display = 'none';
-  document.getElementById('confirm-screen').classList.add('show');
-  var ua = srpeAnswers.srpe * 90;
-  document.getElementById('confirm-num').textContent    = srpeAnswers.srpe + '/10';
-  document.getElementById('confirm-num').style.color    = srpeAnswers.srpe <= 4 ? '#1D9E75' : (srpeAnswers.srpe <= 7 ? '#E67E22' : '#C0392B');
-  document.getElementById('confirm-status').textContent = 'sRPE registrado';
-  document.getElementById('confirm-status').style.color = '#1D9E75';
-  document.getElementById('confirm-sub').textContent    = 'Carga estimada: ' + srpeAnswers.srpe + ' x 90 min = ' + ua + ' UA';
+function showDone() {
+  document.getElementById('wellness-screen').style.display = 'none';
+  document.getElementById('srpe-screen').style.display     = 'none';
+  var el = document.getElementById('done-screen');
+  el.classList.add('show');
   if (currentPlayer) {
-    document.getElementById('confirm-player-text').innerHTML =
-      'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Valoracion registrada.';
+    document.getElementById('done-text').innerHTML =
+      'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Ya rellenaste el wellness de hoy.<br>Recuerda valorar el entrenamiento después del entreno.';
   }
   window.scrollTo(0,0);
 }
 
-// ── Init ──────────────────────────────────────────────
+// ── Form interactions ────────────────────────────────
+function selScale(btn, key) {
+  btn.closest('[data-q]').querySelectorAll('.scale-btn').forEach(function(b){b.classList.remove('sel');});
+  btn.classList.add('sel');
+  ans[key] = parseInt(btn.dataset.v);
+  if (key==='q14') document.getElementById('zona-wrap').style.display = ans.q14<=3?'block':'none';
+  if (key==='smol') document.getElementById('zona-srpe-wrap').style.display = ans.smol<=3?'block':'none';
+  updateProgress();
+}
+
+function selRadio(item, key, val) {
+  item.parentElement.querySelectorAll('.radio-item,.phase-item').forEach(function(i){i.classList.remove('sel');});
+  item.classList.add('sel');
+  ans[key] = parseInt(val);
+  updateProgress();
+}
+
+function togChip(chip) {
+  var isNone = chip.classList.contains('none');
+  var grid = chip.parentElement;
+  if (isNone) { grid.querySelectorAll('.chip').forEach(function(c){c.classList.remove('sel');});}
+  else { grid.querySelector('.none').classList.remove('sel'); }
+  chip.classList.toggle('sel');
+}
+
+function selSRPE(row, val) {
+  document.querySelectorAll('.srpe-row').forEach(function(r){r.classList.remove('sel');});
+  row.classList.add('sel');
+  srpeVal = val;
+}
+
+function updateProgress() {
+  var done = SCORE_KEYS.filter(function(k){return ans[k]>0;}).length;
+  var pct  = Math.round(done/SCORE_KEYS.length*100);
+  document.getElementById('prog-bar').style.width  = pct+'%';
+  document.getElementById('prog-text').textContent = done+' de '+SCORE_KEYS.length+' completadas';
+  document.getElementById('prog-pct').textContent  = pct+'%';
+}
+
+// ── Submit wellness ──────────────────────────────────
+var sending = false;
+function submitWellness() {
+  if (sending) return;
+  var req = ['q1','q2','q3','q4','q5','q6','q7','q8'];
+  if (req.some(function(k){return ans[k]===0;})) { toast('Completa los bloques 1 y 2 antes de enviar'); return; }
+  sending = true;
+  var btn = document.getElementById('w-submit-btn');
+  btn.textContent='Enviando...'; btn.disabled=true;
+  var syms = [];
+  document.querySelectorAll('#chips-q12 .chip.sel').forEach(function(c){syms.push(c.textContent.trim());});
+  var payload = {
+    action:'submitWellness',
+    name:  currentPlayer?currentPlayer.name:'',
+    email: currentPlayer?currentPlayer.email:'',
+    q1:ans.q1,q2:ans.q2,q3:ans.q3,q4:ans.q4,q5:ans.q5,
+    q6:ans.q6,q7:ans.q7,q8:ans.q8,q9:ans.q9,q10:ans.q10,
+    q11:ans.q11,q12:syms,q13:ans.q13,q14:ans.q14,
+    q15:document.getElementById('q15')?document.getElementById('q15').value:'',
+    q16:document.getElementById('q16').value||'',
+    timestamp:new Date().toISOString()
+  };
+  fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .then(function(){doneWellness();}).catch(function(){doneWellness();});
+}
+
+function doneWellness() {
+  localStorage.setItem('gcf_w_done_'+today,'1');
+  document.getElementById('wellness-screen').style.display='none';
+  document.getElementById('confirm-screen').classList.add('show');
+  document.getElementById('c-icon').textContent='✅';
+  document.getElementById('c-title').textContent='¡Wellness enviado!';
+  if(currentPlayer) document.getElementById('c-text').innerHTML='Buen trabajo, <strong>'+currentPlayer.name.split(' ')[0]+'</strong>! El staff lo ha recibido. 💪';
+  document.getElementById('c-card-icon').textContent='📋';
+  document.getElementById('c-card-title').textContent='Recibido por el staff';
+  document.getElementById('c-card-sub').textContent='Prepararán la sesión según tu estado de hoy.';
+  document.getElementById('c-footer').textContent='Recuerda valorar el entrenamiento después del entreno.';
+  window.scrollTo(0,0);
+}
+
+// ── Submit sRPE ──────────────────────────────────────
+var sendingSRPE = false;
+function submitSRPE() {
+  if (sendingSRPE) return;
+  if (!srpeVal) { toast('Selecciona el nivel de esfuerzo'); return; }
+  if (!ans.smol) { toast('Indica si tuviste molestias'); return; }
+  sendingSRPE = true;
+  var btn = document.getElementById('s-submit-btn');
+  btn.textContent='Enviando...'; btn.disabled=true;
+  var payload = {
+    action:'submitSRPE',
+    name:  currentPlayer?currentPlayer.name:'',
+    email: currentPlayer?currentPlayer.email:'',
+    srpe:  String(srpeVal),
+    molestia: ans.smol,
+    zona: document.getElementById('zona-srpe').value||'',
+    comentario: document.getElementById('srpe-coment').value||'',
+    timestamp: new Date().toISOString()
+  };
+  fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .then(function(){doneSRPE();}).catch(function(){doneSRPE();});
+}
+
+function doneSRPE() {
+  localStorage.setItem('gcf_s_done_'+today,'1');
+  document.getElementById('srpe-screen').style.display='none';
+  document.getElementById('confirm-screen').classList.add('show');
+  var ua = srpeVal * 90;
+  var col = srpeVal<=4?'#1D9E75':(srpeVal<=7?'#E67E22':'#C0392B');
+  document.getElementById('c-icon').textContent='💪';
+  document.getElementById('c-title').textContent='¡Valoración enviada!';
+  if(currentPlayer) document.getElementById('c-text').innerHTML='Buen trabajo, <strong>'+currentPlayer.name.split(' ')[0]+'</strong>! Buena recuperación.';
+  document.getElementById('c-card-icon').textContent=srpeVal<=4?'🟢':(srpeVal<=7?'🟡':'🔴');
+  document.getElementById('c-card-title').style.color=col;
+  document.getElementById('c-card-title').textContent='sRPE '+srpeVal+'/10 registrado';
+  document.getElementById('c-card-sub').textContent='Carga estimada: '+srpeVal+' × 90 min = '+ua+' UA';
+  document.getElementById('c-footer').textContent='';
+  window.scrollTo(0,0);
+}
+
+// ── Toast ────────────────────────────────────────────
+function toast(msg) {
+  var t=document.createElement('div');
+  t.textContent=msg;
+  t.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1A1A1A;color:white;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;max-width:280px;text-align:center;';
+  document.body.appendChild(t);
+  setTimeout(function(){t.remove();},3000);
+}
+
+// ── Init ─────────────────────────────────────────────
 loadPlayers();
 checkSession();
 </script>
