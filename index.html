@@ -378,23 +378,47 @@ function enterApp() {
   document.getElementById('w-player-chip').textContent = name;
   document.getElementById('s-player-chip').textContent = name;
 
-  var donePRE  = localStorage.getItem('gcf_w_done_' + today + '_' + playerKey());
-  var doneSRPE = localStorage.getItem('gcf_s_done_' + today + '_' + playerKey());
-  var hour = new Date().getHours();
+  // Verificar en Sheets si ya respondió hoy (fuente de verdad)
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', WEBAPP_URL + '?action=checkStatus&name=' + encodeURIComponent(currentPlayer ? currentPlayer.name : '') + '&v=' + Date.now(), true);
+  xhr.onload = function() {
+    var wellnessDone = false;
+    var srpeDone     = false;
+    try {
+      var d = JSON.parse(xhr.responseText);
+      wellnessDone = d.wellnessDone || false;
+      srpeDone     = d.srpeDone     || false;
+    } catch(e) {}
 
-  if (donePRE && doneSRPE) {
-    // Ambos hechos — mostrar el que corresponde por hora
-    if (hour >= 15) { showDoneSRPE(); } else { showDone(); }
-  } else if (donePRE) {
-    // Wellness hecho, sRPE pendiente
-    if (hour >= 15) { goMode('srpe'); } else { showDone(); }
-  } else if (doneSRPE) {
-    // sRPE hecho, wellness pendiente (poco probable pero posible)
-    goMode('wellness');
-  } else {
-    // Ninguno hecho — detectar por hora
-    goMode(hour >= 15 ? 'srpe' : 'wellness');
-  }
+    // Actualizar localStorage con la respuesta real de Sheets
+    if (wellnessDone) localStorage.setItem('gcf_w_done_' + today + '_' + playerKey(), '1');
+    if (srpeDone)     localStorage.setItem('gcf_s_done_' + today + '_' + playerKey(), '1');
+
+    var hour = new Date().getHours();
+    if (wellnessDone && srpeDone) {
+      if (hour >= 15) { showDoneSRPE(); } else { showDone(); }
+    } else if (wellnessDone) {
+      if (hour >= 15) { goMode('srpe'); } else { showDone(); }
+    } else if (srpeDone) {
+      goMode('wellness');
+    } else {
+      goMode(hour >= 15 ? 'srpe' : 'wellness');
+    }
+  };
+  xhr.onerror = function() {
+    // Si falla la conexión, usar localStorage como fallback
+    var hour = new Date().getHours();
+    var donePRE  = localStorage.getItem('gcf_w_done_' + today + '_' + playerKey());
+    var doneSRPE = localStorage.getItem('gcf_s_done_' + today + '_' + playerKey());
+    if (donePRE && doneSRPE) {
+      if (hour >= 15) { showDoneSRPE(); } else { showDone(); }
+    } else if (donePRE) {
+      if (hour >= 15) { goMode('srpe'); } else { showDone(); }
+    } else {
+      goMode(hour >= 15 ? 'srpe' : 'wellness');
+    }
+  };
+  xhr.send();
 }
 
 function goMode(mode) {
