@@ -532,7 +532,7 @@ function enterApp() {
   document.getElementById('s-player-chip').textContent = name;
 
   // Check if wellness already done today BY THIS PLAYER
-  var playerKey = currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+  var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
   var donePRE = localStorage.getItem('gcf_w_done_' + today + '_' + playerKey);
   if (donePRE) {
     showDone();
@@ -540,7 +540,7 @@ function enterApp() {
     // Auto-detect mode by hour
     var hour = new Date().getHours();
     if (hour >= 15) {
-      var playerKeyS3 = currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+      var playerKeyS3 = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
       if (localStorage.getItem('gcf_s_done_' + today + '_' + playerKeyS3)) {
         showDoneSRPE(); return;
       }
@@ -558,12 +558,12 @@ function goMode(mode) {
   document.getElementById('confirm-screen').classList.remove('show');
   if (mode === 'wellness') {
     // If already done by this player today, redirect to done screen
-    var playerKey = currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+    var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
     if (localStorage.getItem('gcf_w_done_' + today + '_' + playerKey)) { showDone(); return; }
     document.getElementById('wellness-screen').style.display = 'block';
   } else {
     // Check if sRPE already done by this player today
-    var playerKeyS2 = currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+    var playerKeyS2 = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
     if (localStorage.getItem('gcf_s_done_' + today + '_' + playerKeyS2)) {
       showDoneSRPE();
       return;
@@ -646,12 +646,15 @@ function submitWellness() {
     q16:document.getElementById('q16').value||'',
     timestamp:new Date().toISOString()
   };
+  var doneCalled = false;
+  function callDoneWellness() { if (!doneCalled) { doneCalled = true; doneWellness(); } }
   fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(){doneWellness();}).catch(function(){doneWellness();});
+  .then(function(){ setTimeout(callDoneWellness, 300); })
+  .catch(function(){ setTimeout(callDoneWellness, 300); });
 }
 
 function doneWellness() {
-  var playerKey = currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+  var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
   localStorage.setItem('gcf_w_done_'+today+'_'+playerKey,'1');
   document.getElementById('wellness-screen').style.display='none';
   document.getElementById('confirm-screen').classList.add('show');
@@ -684,12 +687,15 @@ function submitSRPE() {
     comentario: document.getElementById('srpe-coment').value||'',
     timestamp: new Date().toISOString()
   };
+  var doneSRPECalled = false;
+  function callDoneSRPE() { if (!doneSRPECalled) { doneSRPECalled = true; doneSRPE(); } }
   fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(){doneSRPE();}).catch(function(){doneSRPE();});
+  .then(function(){ setTimeout(callDoneSRPE, 300); })
+  .catch(function(){ setTimeout(callDoneSRPE, 300); });
 }
 
 function doneSRPE() {
-  var playerKeyS = currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+  var playerKeyS = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
   localStorage.setItem('gcf_s_done_'+today+'_'+playerKeyS,'1');
   document.getElementById('srpe-screen').style.display='none';
   document.getElementById('confirm-screen').classList.add('show');
