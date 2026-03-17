@@ -8,18 +8,9 @@
 <meta name="theme-color" content="#C0392B">
 <title>Wellness · Granada CF</title>
 <style>
-:root {
-  --red:#C0392B; --red-d:#922B21; --red-l:#F9EBEA;
-  --white:#FFFFFF; --off:#F7F7F7; --gray:#888; --gray-l:#F2F2F2;
-  --text:#1A1A1A; --text-s:#555; --border:#E8E8E8;
-  --green:#1D9E75; --green-l:#E8F8F3;
-  --amber:#E67E22; --amber-l:#FEF5EC;
-  --radius:14px; --shadow:0 2px 16px rgba(0,0,0,0.08);
-}
+:root{--red:#C0392B;--red-d:#922B21;--red-l:#F9EBEA;--white:#FFFFFF;--off:#F7F7F7;--gray:#888;--gray-l:#F2F2F2;--text:#1A1A1A;--text-s:#555;--border:#E8E8E8;--green:#1D9E75;--green-l:#E8F8F3;--amber:#E67E22;--amber-l:#FEF5EC;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,0.08);}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-height:100vh;padding-bottom:40px;}
-
-/* PIN */
 .pin-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background:var(--red);}
 .pin-logo{width:90px;height:90px;background:white;border-radius:50%;padding:8px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
 .pin-logo img{width:100%;height:100%;object-fit:contain;}
@@ -38,8 +29,6 @@ body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-he
 .pin-btn{width:100%;background:var(--red);color:white;border:none;border-radius:12px;padding:14px;font-size:17px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;}
 .pin-error{font-size:12px;color:var(--red-d);text-align:center;margin-top:10px;min-height:16px;font-weight:600;}
 .pin-hint{font-size:11px;color:var(--gray);text-align:center;margin-top:8px;}
-
-/* HEADER */
 .app-header{background:var(--red);position:sticky;top:0;z-index:100;}
 .header-top{display:flex;align-items:center;gap:12px;padding:14px 20px 10px;}
 .logo-wrap{width:44px;height:44px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;padding:3px;}
@@ -51,17 +40,11 @@ body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-he
 .progress-meta{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.75);margin-bottom:6px;font-weight:500;}
 .progress-track{height:4px;background:rgba(255,255,255,0.25);border-radius:2px;overflow:hidden;}
 .progress-fill{height:100%;background:white;border-radius:2px;transition:width 0.4s;}
-
-/* MODE SWITCHER */
 .mode-switcher{display:flex;background:white;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px;}
 .mode-btn{flex:1;padding:13px 8px;border:none;background:transparent;font-size:13px;font-weight:700;color:var(--gray);cursor:pointer;transition:all 0.2s;border-bottom:3px solid transparent;}
 .mode-btn.active{color:var(--red);border-bottom-color:var(--red);background:var(--red-l);}
-
-/* MAIN */
 .main{padding:14px 16px 0;max-width:520px;margin:0 auto;}
 .limit-notice{background:var(--amber-l);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#7E5109;font-weight:500;}
-
-/* BLOCKS */
 .block{background:white;border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow);animation:fadeIn 0.3s ease both;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .block:nth-child(2){animation-delay:.05s}.block:nth-child(3){animation-delay:.10s}
@@ -74,8 +57,6 @@ body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-he
 .block-body{padding:14px 16px;display:flex;flex-direction:column;gap:18px;}
 .q-label{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.3;}
 .q-hint{font-size:12px;color:var(--text-s);margin-bottom:10px;line-height:1.4;}
-
-/* SCALE */
 .scale-buttons{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
 .scale-btn{aspect-ratio:1;border:1.5px solid var(--border);border-radius:10px;background:var(--off);font-size:20px;font-weight:700;color:var(--gray);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;-webkit-appearance:none;}
 .scale-btn:active{transform:scale(0.94);}
@@ -84,8 +65,6 @@ body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-he
 .scale-btn.s3.sel{background:#E67E22;}.scale-btn.s4.sel{background:#27AE60;}
 .scale-btn.s5.sel{background:#1D9E75;}
 .scale-ends{display:flex;justify-content:space-between;margin-top:5px;font-size:11px;color:var(--gray);}
-
-/* RADIO */
 .radio-list{display:flex;flex-direction:column;gap:6px;}
 .radio-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--off);}
 .radio-item.sel{border-color:var(--red);background:var(--red-l);}
@@ -94,44 +73,32 @@ body{font-family:Arial,sans-serif;background:var(--off);color:var(--text);min-he
 .radio-item.sel .radio-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:white;}
 .radio-text{font-size:13px;font-weight:500;color:var(--text);}
 .radio-item.sel .radio-text{color:var(--red-d);font-weight:600;}
-
-/* PHASE */
 .phase-list{display:flex;flex-direction:column;gap:6px;}
 .phase-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--off);}
 .phase-item.sel{border-color:var(--red);background:var(--red-l);}
 .phase-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
 .phase-name{font-size:13px;font-weight:600;color:var(--text);}
 .phase-days{font-size:11px;color:var(--text-s);}
-
-/* CHIPS */
 .chip-grid{display:flex;flex-wrap:wrap;gap:7px;}
 .chip{padding:7px 13px;border:1.5px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;color:var(--text-s);background:var(--off);cursor:pointer;transition:all 0.15s;user-select:none;}
 .chip.sel{background:var(--red-l);border-color:var(--red);color:var(--red-d);font-weight:600;}
 .chip.none.sel{background:var(--green-l);border-color:var(--green);color:#085041;}
-
-/* INPUTS */
 .text-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:Arial,sans-serif;font-size:14px;color:var(--text);background:var(--off);transition:border-color 0.15s;-webkit-appearance:none;}
 .text-input:focus{outline:none;border-color:var(--red);background:white;}
 .text-input::placeholder{color:#AAAAAA;}
 textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
 .cycle-note{background:#FEF9F9;border:1px solid #F5C6C6;border-radius:8px;padding:8px 12px;font-size:11px;color:#922B21;margin-bottom:12px;line-height:1.5;}
-
-/* sRPE ROWS */
 .srpe-list{display:flex;flex-direction:column;gap:6px;}
 .srpe-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--off);}
 .srpe-row:active{transform:scale(0.98);}
 .srpe-row.sel{border-color:var(--red);background:var(--red-l);}
 .srpe-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0;}
-
-/* SUBMIT */
 .submit-btn{width:100%;background:var(--red);color:white;border:none;border-radius:var(--radius);padding:16px;font-size:18px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.15s;box-shadow:0 4px 14px rgba(192,57,43,0.4);}
 .submit-btn:active{transform:scale(0.98);background:var(--red-d);}
 .submit-btn:disabled{background:#ccc;box-shadow:none;cursor:not-allowed;}
 .privacy-note{text-align:center;font-size:11px;color:var(--gray);margin-top:10px;}
 .logout-btn{background:none;border:none;color:rgba(255,255,255,0.5);font-size:11px;cursor:pointer;padding:2px 6px;border-radius:6px;transition:all 0.15s;}
 .logout-btn:active{color:white;background:rgba(255,255,255,0.15);}
-
-/* FULLPAGE SCREENS */
 .fullpage{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:var(--off);}
 .fullpage.show{display:flex;}
 .fp-logo{width:80px;height:80px;border-radius:50%;background:white;padding:8px;box-shadow:var(--shadow);margin-bottom:20px;}
@@ -148,7 +115,6 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
 </head>
 <body>
 
-<!-- ═══ PIN SCREEN ═══════════════════════════════════════ -->
 <div id="pin-screen" class="pin-screen">
   <div class="pin-logo"><img src="logo.png" alt="Granada CF"></div>
   <div class="pin-club">Granada CF · Sección Femenina</div>
@@ -171,25 +137,18 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
   </div>
 </div>
 
-<!-- ═══ WELLNESS SCREEN ══════════════════════════════════ -->
 <div id="wellness-screen" style="display:none;">
   <div class="app-header">
     <div class="header-top">
       <div class="logo-wrap"><img src="logo.png" alt="GCF"></div>
-      <div style="flex:1;">
-        <div class="header-club">Granada CF</div>
-        <div class="header-title">Wellness</div>
-      </div>
+      <div style="flex:1;"><div class="header-club">Granada CF</div><div class="header-title">Wellness</div></div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;">
         <div class="player-chip" id="w-player-chip">Jugadora</div>
         <button class="logout-btn" onclick="logout()">Cambiar jugadora</button>
       </div>
     </div>
     <div class="progress-wrap">
-      <div class="progress-meta">
-        <span id="prog-text">0 de 12 completadas</span>
-        <span id="prog-pct">0%</span>
-      </div>
+      <div class="progress-meta"><span id="prog-text">0 de 12 completadas</span><span id="prog-pct">0%</span></div>
       <div class="progress-track"><div class="progress-fill" id="prog-bar" style="width:0%"></div></div>
     </div>
   </div>
@@ -199,97 +158,37 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
       <button class="mode-btn" onclick="goMode('srpe')">💪 Valorar entrenamiento</button>
     </div>
     <div class="limit-notice">⏰ Completa este formulario <strong>antes del entrenamiento de hoy</strong>. El staff lo recibe al instante.</div>
-
-    <!-- BLOQUE 1 -->
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#E8F4FD;">🛌</div>
-        <div style="flex:1;"><div class="block-title" style="color:#1A5276;">Recuperación física</div><div class="block-sub">Sueño, fatiga y disponibilidad</div></div>
-        <div class="block-pts">25 pts</div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#E8F4FD;">🛌</div><div style="flex:1;"><div class="block-title" style="color:#1A5276;">Recuperación física</div><div class="block-sub">Sueño, fatiga y disponibilidad</div></div><div class="block-pts">25 pts</div></div>
       <div class="block-body">
-        <div><div class="q-label">1. Calidad del sueño anoche</div>
-          <div class="scale-buttons" data-q="q1">
-            <button class="scale-btn s1" onclick="selScale(this,'q1')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q1')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q1')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q1')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q1')" data-v="5">5</button>
-          </div><div class="scale-ends"><span>Muy mal</span><span>Muy bien</span></div>
-        </div>
-        <div><div class="q-label">2. Horas de sueño</div>
-          <div class="radio-list" id="rg-q2">
-            <div class="radio-item" onclick="selRadio(this,'q2','1')"><div class="radio-dot"></div><div class="radio-text">Menos de 5 horas</div></div>
-            <div class="radio-item" onclick="selRadio(this,'q2','2')"><div class="radio-dot"></div><div class="radio-text">Entre 5 y 6 horas</div></div>
-            <div class="radio-item" onclick="selRadio(this,'q2','3')"><div class="radio-dot"></div><div class="radio-text">Entre 6 y 7 horas</div></div>
-            <div class="radio-item" onclick="selRadio(this,'q2','4')"><div class="radio-dot"></div><div class="radio-text">Entre 7 y 8 horas</div></div>
-            <div class="radio-item" onclick="selRadio(this,'q2','5')"><div class="radio-dot"></div><div class="radio-text">Más de 8 horas</div></div>
-          </div>
-        </div>
-        <div><div class="q-label">3. Fatiga general hoy</div>
-          <div class="scale-buttons" data-q="q3"><button class="scale-btn s1" onclick="selScale(this,'q3')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q3')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q3')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q3')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q3')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Muy cansada</span><span>Muy descansada</span></div>
-        </div>
-        <div><div class="q-label">4. Dolor muscular (agujetas)</div>
-          <div class="scale-buttons" data-q="q4"><button class="scale-btn s1" onclick="selScale(this,'q4')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q4')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q4')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q4')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q4')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Dolor alto</span><span>Sin dolor</span></div>
-        </div>
-        <div><div class="q-label">5. Disponibilidad para entrenar</div>
-          <div class="scale-buttons" data-q="q5"><button class="scale-btn s1" onclick="selScale(this,'q5')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q5')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q5')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q5')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q5')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>No puedo</span><span>Al 100%</span></div>
-        </div>
+        <div><div class="q-label">1. Calidad del sueño anoche</div><div class="scale-buttons" data-q="q1"><button class="scale-btn s1" onclick="selScale(this,'q1')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q1')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q1')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q1')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q1')" data-v="5">5</button></div><div class="scale-ends"><span>Muy mal</span><span>Muy bien</span></div></div>
+        <div><div class="q-label">2. Horas de sueño</div><div class="radio-list"><div class="radio-item" onclick="selRadio(this,'q2','1')"><div class="radio-dot"></div><div class="radio-text">Menos de 5 horas</div></div><div class="radio-item" onclick="selRadio(this,'q2','2')"><div class="radio-dot"></div><div class="radio-text">Entre 5 y 6 horas</div></div><div class="radio-item" onclick="selRadio(this,'q2','3')"><div class="radio-dot"></div><div class="radio-text">Entre 6 y 7 horas</div></div><div class="radio-item" onclick="selRadio(this,'q2','4')"><div class="radio-dot"></div><div class="radio-text">Entre 7 y 8 horas</div></div><div class="radio-item" onclick="selRadio(this,'q2','5')"><div class="radio-dot"></div><div class="radio-text">Más de 8 horas</div></div></div></div>
+        <div><div class="q-label">3. Fatiga general hoy</div><div class="scale-buttons" data-q="q3"><button class="scale-btn s1" onclick="selScale(this,'q3')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q3')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q3')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q3')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q3')" data-v="5">5</button></div><div class="scale-ends"><span>Muy cansada</span><span>Muy descansada</span></div></div>
+        <div><div class="q-label">4. Dolor muscular (agujetas)</div><div class="scale-buttons" data-q="q4"><button class="scale-btn s1" onclick="selScale(this,'q4')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q4')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q4')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q4')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q4')" data-v="5">5</button></div><div class="scale-ends"><span>Dolor alto</span><span>Sin dolor</span></div></div>
+        <div><div class="q-label">5. Disponibilidad para entrenar</div><div class="scale-buttons" data-q="q5"><button class="scale-btn s1" onclick="selScale(this,'q5')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q5')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q5')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q5')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q5')" data-v="5">5</button></div><div class="scale-ends"><span>No puedo</span><span>Al 100%</span></div></div>
       </div>
     </div>
-
-    <!-- BLOQUE 2 -->
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#EBF5FB;">🧠</div>
-        <div style="flex:1;"><div class="block-title" style="color:#1A5276;">Estado mental</div><div class="block-sub">Ánimo, estrés y motivación</div></div>
-        <div class="block-pts">15 pts</div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#EBF5FB;">🧠</div><div style="flex:1;"><div class="block-title" style="color:#1A5276;">Estado mental</div><div class="block-sub">Ánimo, estrés y motivación</div></div><div class="block-pts">15 pts</div></div>
       <div class="block-body">
-        <div><div class="q-label">6. Estado de ánimo</div>
-          <div class="scale-buttons" data-q="q6"><button class="scale-btn s1" onclick="selScale(this,'q6')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q6')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q6')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q6')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q6')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Muy bajo</span><span>Muy bueno</span></div>
-        </div>
-        <div><div class="q-label">7. Estrés extradeportivo</div><div class="q-hint">Estudios, trabajo, familia...</div>
-          <div class="scale-buttons" data-q="q7"><button class="scale-btn s1" onclick="selScale(this,'q7')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q7')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q7')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q7')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q7')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Estrés alto</span><span>Sin estrés</span></div>
-        </div>
-        <div><div class="q-label">8. Motivación para entrenar</div>
-          <div class="scale-buttons" data-q="q8"><button class="scale-btn s1" onclick="selScale(this,'q8')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q8')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q8')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q8')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q8')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Ninguna</span><span>Muy alta</span></div>
-        </div>
+        <div><div class="q-label">6. Estado de ánimo</div><div class="scale-buttons" data-q="q6"><button class="scale-btn s1" onclick="selScale(this,'q6')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q6')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q6')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q6')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q6')" data-v="5">5</button></div><div class="scale-ends"><span>Muy bajo</span><span>Muy bueno</span></div></div>
+        <div><div class="q-label">7. Estrés extradeportivo</div><div class="q-hint">Estudios, trabajo, familia...</div><div class="scale-buttons" data-q="q7"><button class="scale-btn s1" onclick="selScale(this,'q7')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q7')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q7')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q7')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q7')" data-v="5">5</button></div><div class="scale-ends"><span>Estrés alto</span><span>Sin estrés</span></div></div>
+        <div><div class="q-label">8. Motivación para entrenar</div><div class="scale-buttons" data-q="q8"><button class="scale-btn s1" onclick="selScale(this,'q8')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q8')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q8')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q8')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q8')" data-v="5">5</button></div><div class="scale-ends"><span>Ninguna</span><span>Muy alta</span></div></div>
       </div>
     </div>
-
-    <!-- BLOQUE 3 -->
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#FEF9E7;">⚡</div>
-        <div style="flex:1;"><div class="block-title" style="color:#7D6608;">Nutrición e hidratación</div><div class="block-sub">Desde el último entrenamiento</div></div>
-        <div class="block-pts">10 pts</div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#FEF9E7;">⚡</div><div style="flex:1;"><div class="block-title" style="color:#7D6608;">Nutrición e hidratación</div><div class="block-sub">Desde el último entrenamiento</div></div><div class="block-pts">10 pts</div></div>
       <div class="block-body">
-        <div><div class="q-label">9. Alimentación</div>
-          <div class="scale-buttons" data-q="q9"><button class="scale-btn s1" onclick="selScale(this,'q9')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q9')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q9')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q9')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q9')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Muy mala</span><span>Excelente</span></div>
-        </div>
-        <div><div class="q-label">10. Hidratación</div>
-          <div class="scale-buttons" data-q="q10"><button class="scale-btn s1" onclick="selScale(this,'q10')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q10')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q10')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q10')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q10')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Muy poca</span><span>Muy buena</span></div>
-        </div>
+        <div><div class="q-label">9. Alimentación</div><div class="scale-buttons" data-q="q9"><button class="scale-btn s1" onclick="selScale(this,'q9')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q9')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q9')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q9')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q9')" data-v="5">5</button></div><div class="scale-ends"><span>Muy mala</span><span>Excelente</span></div></div>
+        <div><div class="q-label">10. Hidratación</div><div class="scale-buttons" data-q="q10"><button class="scale-btn s1" onclick="selScale(this,'q10')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q10')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q10')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q10')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q10')" data-v="5">5</button></div><div class="scale-ends"><span>Muy poca</span><span>Muy buena</span></div></div>
       </div>
     </div>
-
-    <!-- BLOQUE 4 -->
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#FDEDEC;">🌙</div>
-        <div style="flex:1;"><div class="block-title" style="color:#922B21;">Ciclo menstrual</div><div class="block-sub">Contexto para el staff</div></div>
-        <div class="block-pts">Contexto</div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#FDEDEC;">🌙</div><div style="flex:1;"><div class="block-title" style="color:#922B21;">Ciclo menstrual</div><div class="block-sub">Contexto para el staff</div></div><div class="block-pts">Contexto</div></div>
       <div class="block-body">
         <div class="cycle-note">🔒 Solo lo ve el cuerpo técnico. Ayuda a adaptar la sesión a tu estado real.</div>
         <div><div class="q-label">11. Fase actual del ciclo</div>
-          <div class="phase-list" id="rg-q11">
+          <div class="phase-list">
             <div class="phase-item" onclick="selRadio(this,'q11','1')"><div class="phase-dot" style="background:#E74C3C;"></div><div><div class="phase-name">Menstruación</div><div class="phase-days">Día 1–5</div></div></div>
             <div class="phase-item" onclick="selRadio(this,'q11','2')"><div class="phase-dot" style="background:#E67E22;"></div><div><div class="phase-name">Folicular temprana</div><div class="phase-days">Día 6–10</div></div></div>
             <div class="phase-item" onclick="selRadio(this,'q11','3')"><div class="phase-dot" style="background:#1D9E75;"></div><div><div class="phase-name">Ovulación ← Pico de rendimiento</div><div class="phase-days">Día 11–16</div></div></div>
@@ -301,44 +200,23 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
         </div>
         <div><div class="q-label">12. Síntomas hoy</div><div class="q-hint">Selecciona todos los que tengas</div>
           <div class="chip-grid" id="chips-q12">
-            <div class="chip" onclick="togChip(this)">Dismenorrea</div>
-            <div class="chip" onclick="togChip(this)">Fatiga del ciclo</div>
-            <div class="chip" onclick="togChip(this)">Distensión</div>
-            <div class="chip" onclick="togChip(this)">Cefalea</div>
-            <div class="chip" onclick="togChip(this)">Cambios de humor</div>
-            <div class="chip" onclick="togChip(this)">Náuseas</div>
-            <div class="chip" onclick="togChip(this)">Alteración del sueño</div>
-            <div class="chip none" onclick="togChip(this)">Ninguno</div>
+            <div class="chip" onclick="togChip(this)">Dismenorrea</div><div class="chip" onclick="togChip(this)">Fatiga del ciclo</div>
+            <div class="chip" onclick="togChip(this)">Distensión</div><div class="chip" onclick="togChip(this)">Cefalea</div>
+            <div class="chip" onclick="togChip(this)">Cambios de humor</div><div class="chip" onclick="togChip(this)">Náuseas</div>
+            <div class="chip" onclick="togChip(this)">Alteración del sueño</div><div class="chip none" onclick="togChip(this)">Ninguno</div>
           </div>
         </div>
-        <div><div class="q-label">13. Impacto del ciclo en el rendimiento hoy</div>
-          <div class="scale-buttons" data-q="q13"><button class="scale-btn s1" onclick="selScale(this,'q13')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q13')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q13')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q13')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q13')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>No puedo entrenar</span><span>Sin impacto</span></div>
-        </div>
+        <div><div class="q-label">13. Impacto del ciclo en el rendimiento hoy</div><div class="scale-buttons" data-q="q13"><button class="scale-btn s1" onclick="selScale(this,'q13')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q13')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q13')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q13')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q13')" data-v="5">5</button></div><div class="scale-ends"><span>No puedo entrenar</span><span>Sin impacto</span></div></div>
       </div>
     </div>
-
-    <!-- BLOQUE 5 -->
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#F4ECF7;">🩹</div>
-        <div style="flex:1;"><div class="block-title" style="color:#6C3483;">Molestias físicas</div><div class="block-sub">Alerta automática al staff si hay dolor</div></div>
-        <div class="block-pts">5 pts</div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#F4ECF7;">🩹</div><div style="flex:1;"><div class="block-title" style="color:#6C3483;">Molestias físicas</div><div class="block-sub">Alerta automática al staff si hay dolor</div></div><div class="block-pts">5 pts</div></div>
       <div class="block-body">
-        <div><div class="q-label">14. Nivel de dolor o molestia hoy</div>
-          <div class="scale-buttons" data-q="q14"><button class="scale-btn s1" onclick="selScale(this,'q14')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q14')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q14')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q14')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q14')" data-v="5">5</button></div>
-          <div class="scale-ends"><span>Dolor severo</span><span>Sin molestias</span></div>
-        </div>
-        <div id="zona-wrap" style="display:none;"><div class="q-label">15. Zona afectada</div>
-          <input type="text" class="text-input" id="q15" placeholder="Ej: Rodilla derecha — crujido al bajar escaleras">
-        </div>
-        <div><div class="q-label">16. Comentario para el staff <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
-          <textarea class="text-input" id="q16" rows="3" placeholder="Situación personal, viaje, algo del último entreno..."></textarea>
-        </div>
+        <div><div class="q-label">14. Nivel de dolor o molestia hoy</div><div class="scale-buttons" data-q="q14"><button class="scale-btn s1" onclick="selScale(this,'q14')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'q14')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'q14')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'q14')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'q14')" data-v="5">5</button></div><div class="scale-ends"><span>Dolor severo</span><span>Sin molestias</span></div></div>
+        <div id="zona-wrap" style="display:none;"><div class="q-label">15. Zona afectada</div><input type="text" class="text-input" id="q15" placeholder="Ej: Rodilla derecha — crujido al bajar escaleras"></div>
+        <div><div class="q-label">16. Comentario para el staff <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div><textarea class="text-input" id="q16" rows="3" placeholder="Situación personal, viaje, algo del último entreno..."></textarea></div>
       </div>
     </div>
-
     <div style="padding:8px 0 0;">
       <button class="submit-btn" id="w-submit-btn" onclick="submitWellness()">Enviar al staff</button>
       <div class="privacy-note">🔒 Datos confidenciales · Solo los ve el staff de Granada CF</div>
@@ -346,40 +224,30 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
   </div>
 </div>
 
-<!-- ═══ WELLNESS YA HECHO ════════════════════════════════ -->
 <div id="done-screen" class="fullpage">
   <div class="fp-logo"><img src="logo.png" alt="Granada CF"></div>
   <div class="fp-icon">✅</div>
   <div class="fp-title">Wellness completado</div>
-  <div class="fp-text" id="done-text">Ya rellenaste el wellness de hoy.<br>Recuerda valorar el entrenamiento después.</div>
+  <div class="fp-text" id="done-text">Ya rellenaste el wellness de hoy.</div>
   <button class="fp-btn" onclick="goMode('srpe')">💪 Valorar el entrenamiento</button>
   <div style="font-size:12px;color:var(--gray);">Recuerda rellenar el sRPE después del entreno</div>
   <button onclick="logout()" style="background:none;border:none;color:var(--gray);font-size:12px;cursor:pointer;margin-top:16px;text-decoration:underline;">Cambiar jugadora</button>
 </div>
 
-<!-- ═══ sRPE YA HECHO ══════════════════════════════════ -->
 <div id="done-srpe-screen" class="fullpage">
   <div class="fp-logo"><img src="logo.png" alt="Granada CF"></div>
   <div class="fp-icon">💪</div>
   <div class="fp-title">sRPE ya completado</div>
   <div class="fp-text" id="done-srpe-text">Ya valoraste el entrenamiento de hoy.</div>
-  <div class="fp-card">
-    <div class="fp-card-icon">✅</div>
-    <div class="fp-card-title">Valoración registrada</div>
-    <div class="fp-card-sub">El staff tiene tus datos de hoy.</div>
-  </div>
+  <div class="fp-card"><div class="fp-card-icon">✅</div><div class="fp-card-title">Valoración registrada</div><div class="fp-card-sub">El staff tiene tus datos de hoy.</div></div>
   <button onclick="logout()" style="background:none;border:none;color:var(--gray);font-size:12px;cursor:pointer;margin-top:16px;text-decoration:underline;">Cambiar jugadora</button>
 </div>
 
-<!-- ═══ sRPE SCREEN ══════════════════════════════════════ -->
 <div id="srpe-screen" style="display:none;">
   <div class="app-header">
     <div class="header-top">
       <div class="logo-wrap"><img src="logo.png" alt="GCF"></div>
-      <div style="flex:1;">
-        <div class="header-club">Granada CF</div>
-        <div class="header-title">Wellness</div>
-      </div>
+      <div style="flex:1;"><div class="header-club">Granada CF</div><div class="header-title">Wellness</div></div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px;">
         <div class="player-chip" id="s-player-chip">Jugadora</div>
         <button class="logout-btn" onclick="logout()">Cambiar jugadora</button>
@@ -391,12 +259,8 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
       <button class="mode-btn" onclick="goMode('wellness')">🛌 Wellness pre-entreno</button>
       <button class="mode-btn active" onclick="goMode('srpe')">💪 Valorar entrenamiento</button>
     </div>
-
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#E8F4FD;">💪</div>
-        <div style="flex:1;"><div class="block-title" style="color:#1A5276;">Esfuerzo percibido — Borg CR-10</div><div class="block-sub">¿Cómo fue el esfuerzo total de la sesión?</div></div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#E8F4FD;">💪</div><div style="flex:1;"><div class="block-title" style="color:#1A5276;">Esfuerzo percibido — Borg CR-10</div><div class="block-sub">¿Cómo fue el esfuerzo total de la sesión?</div></div></div>
       <div class="block-body">
         <div><div class="q-hint">Piensa en el esfuerzo TOTAL de todo el entrenamiento, no en momentos puntuales.</div>
           <div class="srpe-list">
@@ -414,32 +278,14 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
         </div>
       </div>
     </div>
-
     <div class="block">
-      <div class="block-header">
-        <div class="block-icon" style="background:#F4ECF7;">🩹</div>
-        <div style="flex:1;"><div class="block-title" style="color:#6C3483;">Molestias durante el entreno</div><div class="block-sub">Alerta automática al staff si hay dolor</div></div>
-      </div>
+      <div class="block-header"><div class="block-icon" style="background:#F4ECF7;">🩹</div><div style="flex:1;"><div class="block-title" style="color:#6C3483;">Molestias durante el entreno</div><div class="block-sub">Alerta automática al staff si hay dolor</div></div></div>
       <div class="block-body">
-        <div><div class="q-label">Nivel de molestia durante la sesión</div>
-          <div class="scale-buttons" data-q="smol">
-            <button class="scale-btn s1" onclick="selScale(this,'smol')" data-v="1">1</button>
-            <button class="scale-btn s2" onclick="selScale(this,'smol')" data-v="2">2</button>
-            <button class="scale-btn s3" onclick="selScale(this,'smol')" data-v="3">3</button>
-            <button class="scale-btn s4" onclick="selScale(this,'smol')" data-v="4">4</button>
-            <button class="scale-btn s5" onclick="selScale(this,'smol')" data-v="5">5</button>
-          </div>
-          <div class="scale-ends"><span>Dolor intenso</span><span>Sin molestias</span></div>
-        </div>
-        <div id="zona-srpe-wrap" style="display:none;"><div class="q-label">Zona afectada</div>
-          <input type="text" class="text-input" id="zona-srpe" placeholder="Ej: Gemelo izquierdo — pinchazo al sprint">
-        </div>
-        <div><div class="q-label">Comentario <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div>
-          <textarea class="text-input" id="srpe-coment" rows="3" placeholder="Cómo te sentiste, algo que notaste..."></textarea>
-        </div>
+        <div><div class="q-label">Nivel de molestia durante la sesión</div><div class="scale-buttons" data-q="smol"><button class="scale-btn s1" onclick="selScale(this,'smol')" data-v="1">1</button><button class="scale-btn s2" onclick="selScale(this,'smol')" data-v="2">2</button><button class="scale-btn s3" onclick="selScale(this,'smol')" data-v="3">3</button><button class="scale-btn s4" onclick="selScale(this,'smol')" data-v="4">4</button><button class="scale-btn s5" onclick="selScale(this,'smol')" data-v="5">5</button></div><div class="scale-ends"><span>Dolor intenso</span><span>Sin molestias</span></div></div>
+        <div id="zona-srpe-wrap" style="display:none;"><div class="q-label">Zona afectada</div><input type="text" class="text-input" id="zona-srpe" placeholder="Ej: Gemelo izquierdo — pinchazo al sprint"></div>
+        <div><div class="q-label">Comentario <span style="font-weight:400;color:var(--gray);font-size:12px;">(opcional)</span></div><textarea class="text-input" id="srpe-coment" rows="3" placeholder="Cómo te sentiste, algo que notaste..."></textarea></div>
       </div>
     </div>
-
     <div style="padding:8px 0 0;">
       <button class="submit-btn" id="s-submit-btn" onclick="submitSRPE()">Enviar valoración</button>
       <div class="privacy-note">🔒 Datos confidenciales · Solo los ve el staff de Granada CF</div>
@@ -447,15 +293,14 @@ textarea.text-input{resize:none;min-height:80px;line-height:1.5;}
   </div>
 </div>
 
-<!-- ═══ CONFIRMATION ═════════════════════════════════════ -->
 <div id="confirm-screen" class="fullpage">
   <div class="fp-logo"><img src="logo.png" alt="Granada CF"></div>
   <div class="fp-icon" id="c-icon">✅</div>
   <div class="fp-title" id="c-title">¡Enviado!</div>
-  <div class="fp-text" id="c-text">El staff lo ha recibido. Nos vemos en el entrenamiento. 💪</div>
+  <div class="fp-text" id="c-text">El staff lo ha recibido. 💪</div>
   <div class="fp-card">
     <div class="fp-card-icon" id="c-card-icon">📋</div>
-    <div class="fp-card-title" id="c-card-title">Wellness completado</div>
+    <div class="fp-card-title" id="c-card-title">Completado</div>
     <div class="fp-card-sub" id="c-card-sub">El staff preparará la sesión según tu estado.</div>
   </div>
   <div style="font-size:12px;color:var(--gray);" id="c-footer">Recibirás el recordatorio del sRPE tras el entrenamiento</div>
@@ -470,7 +315,13 @@ var SCORE_KEYS = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q13','q14'
 var srpeVal = 0;
 var today = new Date().toISOString().substring(0,10);
 
-// ── Players ──────────────────────────────────────────
+// ── KEY por jugadora usando NOMBRE (no email) ─────────
+// Esto garantiza que cada jugadora tenga su propio registro
+// incluso si no tiene email o comparte dispositivo
+function playerKey() {
+  return currentPlayer ? currentPlayer.name.replace(/[^a-z0-9]/gi,'').toLowerCase() : 'unknown';
+}
+
 function loadPlayers() {
   var cached = localStorage.getItem('gcf_players');
   if (cached) { try { PLAYERS = JSON.parse(cached); } catch(e) {} }
@@ -488,14 +339,10 @@ function loadPlayers() {
   xhr.send();
 }
 
-// ── PIN ──────────────────────────────────────────────
 function onPinInput(inp) {
   var clean = inp.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase().slice(0,8);
   inp.value = clean;
-  for (var i=0;i<8;i++) {
-    var d = document.getElementById('d'+i);
-    d.classList.toggle('filled', i < clean.length);
-  }
+  for (var i=0;i<8;i++) document.getElementById('d'+i).classList.toggle('filled', i < clean.length);
   document.getElementById('pin-error').textContent = '';
   var p = PLAYERS[clean];
   document.getElementById('pin-name').textContent = (clean.length===8 && p) ? p.name : ' ';
@@ -531,43 +378,37 @@ function enterApp() {
   document.getElementById('w-player-chip').textContent = name;
   document.getElementById('s-player-chip').textContent = name;
 
-  // Check if wellness already done today BY THIS PLAYER
-  var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
-  var donePRE = localStorage.getItem('gcf_w_done_' + today + '_' + playerKey);
-  if (donePRE) {
-    showDone();
+  var donePRE  = localStorage.getItem('gcf_w_done_' + today + '_' + playerKey());
+  var doneSRPE = localStorage.getItem('gcf_s_done_' + today + '_' + playerKey());
+  var hour = new Date().getHours();
+
+  if (donePRE && doneSRPE) {
+    // Ambos hechos — mostrar el que corresponde por hora
+    if (hour >= 15) { showDoneSRPE(); } else { showDone(); }
+  } else if (donePRE) {
+    // Wellness hecho, sRPE pendiente
+    if (hour >= 15) { goMode('srpe'); } else { showDone(); }
+  } else if (doneSRPE) {
+    // sRPE hecho, wellness pendiente (poco probable pero posible)
+    goMode('wellness');
   } else {
-    // Auto-detect mode by hour
-    var hour = new Date().getHours();
-    if (hour >= 15) {
-      var playerKeyS3 = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
-      if (localStorage.getItem('gcf_s_done_' + today + '_' + playerKeyS3)) {
-        showDoneSRPE(); return;
-      }
-    }
+    // Ninguno hecho — detectar por hora
     goMode(hour >= 15 ? 'srpe' : 'wellness');
   }
 }
 
-// ── Mode ─────────────────────────────────────────────
 function goMode(mode) {
   document.getElementById('wellness-screen').style.display  = 'none';
   document.getElementById('srpe-screen').style.display      = 'none';
   document.getElementById('done-screen').classList.remove('show');
   document.getElementById('done-srpe-screen').classList.remove('show');
   document.getElementById('confirm-screen').classList.remove('show');
+
   if (mode === 'wellness') {
-    // If already done by this player today, redirect to done screen
-    var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
-    if (localStorage.getItem('gcf_w_done_' + today + '_' + playerKey)) { showDone(); return; }
+    if (localStorage.getItem('gcf_w_done_' + today + '_' + playerKey())) { showDone(); return; }
     document.getElementById('wellness-screen').style.display = 'block';
   } else {
-    // Check if sRPE already done by this player today
-    var playerKeyS2 = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
-    if (localStorage.getItem('gcf_s_done_' + today + '_' + playerKeyS2)) {
-      showDoneSRPE();
-      return;
-    }
+    if (localStorage.getItem('gcf_s_done_' + today + '_' + playerKey())) { showDoneSRPE(); return; }
     document.getElementById('srpe-screen').style.display = 'block';
   }
   window.scrollTo(0,0);
@@ -576,16 +417,22 @@ function goMode(mode) {
 function showDone() {
   document.getElementById('wellness-screen').style.display = 'none';
   document.getElementById('srpe-screen').style.display     = 'none';
-  var el = document.getElementById('done-screen');
-  el.classList.add('show');
-  if (currentPlayer) {
-    document.getElementById('done-text').innerHTML =
-      'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Ya rellenaste el wellness de hoy.<br>Recuerda valorar el entrenamiento después del entreno.';
-  }
+  document.getElementById('done-screen').classList.add('show');
+  if (currentPlayer) document.getElementById('done-text').innerHTML =
+    'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Ya rellenaste el wellness de hoy.<br>Recuerda valorar el entrenamiento después del entreno.';
   window.scrollTo(0,0);
 }
 
-// ── Form interactions ────────────────────────────────
+function showDoneSRPE() {
+  document.getElementById('wellness-screen').style.display  = 'none';
+  document.getElementById('srpe-screen').style.display      = 'none';
+  document.getElementById('done-screen').classList.remove('show');
+  document.getElementById('done-srpe-screen').classList.add('show');
+  if (currentPlayer) document.getElementById('done-srpe-text').innerHTML =
+    'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Ya valoraste el entrenamiento de hoy.';
+  window.scrollTo(0,0);
+}
+
 function selScale(btn, key) {
   btn.closest('[data-q]').querySelectorAll('.scale-btn').forEach(function(b){b.classList.remove('sel');});
   btn.classList.add('sel');
@@ -624,7 +471,7 @@ function updateProgress() {
   document.getElementById('prog-pct').textContent  = pct+'%';
 }
 
-// ── Submit wellness ──────────────────────────────────
+// ── Submit wellness — envío único garantizado ─────────
 var sending = false;
 function submitWellness() {
   if (sending) return;
@@ -646,16 +493,15 @@ function submitWellness() {
     q16:document.getElementById('q16').value||'',
     timestamp:new Date().toISOString()
   };
-  var doneCalled = false;
-  function callDoneWellness() { if (!doneCalled) { doneCalled = true; doneWellness(); } }
+  // Guardar en localStorage ANTES del fetch para evitar duplicados
+  // si el usuario pulsa dos veces o la red es lenta
+  localStorage.setItem('gcf_w_done_'+today+'_'+playerKey(),'1');
   fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(){ setTimeout(callDoneWellness, 300); })
-  .catch(function(){ setTimeout(callDoneWellness, 300); });
+  .then(function(){doneWellness();})
+  .catch(function(){doneWellness();});
 }
 
 function doneWellness() {
-  var playerKey = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
-  localStorage.setItem('gcf_w_done_'+today+'_'+playerKey,'1');
   document.getElementById('wellness-screen').style.display='none';
   document.getElementById('confirm-screen').classList.add('show');
   document.getElementById('c-icon').textContent='✅';
@@ -668,7 +514,7 @@ function doneWellness() {
   window.scrollTo(0,0);
 }
 
-// ── Submit sRPE ──────────────────────────────────────
+// ── Submit sRPE — envío único garantizado ─────────────
 var sendingSRPE = false;
 function submitSRPE() {
   if (sendingSRPE) return;
@@ -687,16 +533,14 @@ function submitSRPE() {
     comentario: document.getElementById('srpe-coment').value||'',
     timestamp: new Date().toISOString()
   };
-  var doneSRPECalled = false;
-  function callDoneSRPE() { if (!doneSRPECalled) { doneSRPECalled = true; doneSRPE(); } }
+  // Guardar en localStorage ANTES del fetch para evitar duplicados
+  localStorage.setItem('gcf_s_done_'+today+'_'+playerKey(),'1');
   fetch(WEBAPP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(){ setTimeout(callDoneSRPE, 300); })
-  .catch(function(){ setTimeout(callDoneSRPE, 300); });
+  .then(function(){doneSRPE();})
+  .catch(function(){doneSRPE();});
 }
 
 function doneSRPE() {
-  var playerKeyS = currentPlayer ? currentPlayer.email.replace(/[^a-z0-9]/gi,'') : 'unknown';
-  localStorage.setItem('gcf_s_done_'+today+'_'+playerKeyS,'1');
   document.getElementById('srpe-screen').style.display='none';
   document.getElementById('confirm-screen').classList.add('show');
   var ua = srpeVal * 90;
@@ -712,7 +556,6 @@ function doneSRPE() {
   window.scrollTo(0,0);
 }
 
-// ── Toast ────────────────────────────────────────────
 function toast(msg) {
   var t=document.createElement('div');
   t.textContent=msg;
@@ -721,47 +564,23 @@ function toast(msg) {
   setTimeout(function(){t.remove();},3000);
 }
 
-// ── sRPE ya hecho ────────────────────────────────────
-function showDoneSRPE() {
-  document.getElementById('wellness-screen').style.display  = 'none';
-  document.getElementById('srpe-screen').style.display      = 'none';
-  document.getElementById('done-screen').classList.remove('show');
-  document.getElementById('done-srpe-screen').classList.remove('show');
-  document.getElementById('confirm-screen').classList.remove('show');
-  var el = document.getElementById('done-srpe-screen');
-  el.classList.add('show');
-  if (currentPlayer) {
-    document.getElementById('done-srpe-text').innerHTML =
-      'Buen trabajo, <strong>' + currentPlayer.name.split(' ')[0] + '</strong>! Ya valoraste el entrenamiento de hoy.';
-  }
-  window.scrollTo(0,0);
-}
-
-// ── Logout ───────────────────────────────────────────
 function logout() {
   if (!confirm('¿Cerrar sesión de ' + (currentPlayer ? currentPlayer.name : 'esta jugadora') + '?')) return;
   localStorage.removeItem('gcf_current_player');
   currentPlayer = null;
-  // Hide all screens
   document.getElementById('wellness-screen').style.display  = 'none';
   document.getElementById('srpe-screen').style.display      = 'none';
   document.getElementById('done-screen').classList.remove('show');
   document.getElementById('done-srpe-screen').classList.remove('show');
   document.getElementById('confirm-screen').classList.remove('show');
-  // Reset PIN input
   document.getElementById('pin-input').value = '';
-  for (var i=0;i<8;i++) {
-    var d = document.getElementById('d'+i);
-    d.classList.remove('filled','success','error');
-  }
+  for (var i=0;i<8;i++) document.getElementById('d'+i).classList.remove('filled','success','error');
   document.getElementById('pin-name').innerHTML = '&nbsp;';
   document.getElementById('pin-error').textContent = '';
-  // Show PIN screen
   document.getElementById('pin-screen').style.display = 'flex';
   window.scrollTo(0,0);
 }
 
-// ── Init ─────────────────────────────────────────────
 loadPlayers();
 checkSession();
 </script>
